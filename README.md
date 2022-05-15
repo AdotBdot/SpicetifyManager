@@ -5,6 +5,11 @@
 </p>
 ModernWPF tool for ease of use <a href="https://spicetify.app/">Spicetify</a>.
 
+## Features
+ - Autodetection of themes, colors, plugins ans custom apps.
+ - Portable, no installation required.
+ - Spicetify logs directly in app.
+
 ## Requirements
  - NET 6.0 Runtime. Can be downloaded <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">here</a>.
  - Microsoft Windows build 10.0.18362.0 or higher.
