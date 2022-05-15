@@ -13,6 +13,7 @@ ModernWPF tool for ease of use <a href="https://spicetify.app/">Spicetify</a>.
 ## Requirements
  - NET 6.0 Runtime. Can be downloaded <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">here</a>.
  - Microsoft Windows build 10.0.18362.0 or higher.
+ - Latest version of spicetify-cli.
 
 ## References
  - ModernWpf: <a href=https://github.com/Kinnara/ModernWpf>https://github.com/Kinnara/ModernWpf</a>
