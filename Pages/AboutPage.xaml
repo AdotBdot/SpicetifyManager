@@ -28,12 +28,6 @@
     <ui:SimpleStackPanel>
         <Label Content="About" Style="{StaticResource PageTitle}"/>
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -56,7 +50,7 @@
                            Content=""/>
                 </ui:SimpleStackPanel>
             </Grid>
-            <Grid Grid.Row="1" Margin="0,17,0,0">
+            <Grid Margin="0,13,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -78,8 +72,7 @@
                 <ui:HyperlinkButton Grid.Column="1" Grid.Row="2" Style="{StaticResource HyperlinkStyle}"
                                     Content="spicetify.app" NavigateUri="https://spicetify.app/"/>
             </Grid>
-            <Button Grid.Row="2" x:Name="CheckVersionBtn" Width="Auto" Margin="0,5,0,0" Content="Check Versions"
-                    Click="CheckVersionBtn_OnClick" Style="{StaticResource ButtonStyle}"/>
-        </Grid>
+        <Button x:Name="CheckVersionBtn" Width="Auto" Margin="0,11,0,0" Content="Check Versions"
+                Click="CheckVersionBtn_OnClick" Style="{StaticResource ButtonStyle}"/>
     </ui:SimpleStackPanel>
 </ui:Page>
