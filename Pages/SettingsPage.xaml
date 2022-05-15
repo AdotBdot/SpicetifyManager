@@ -1,0 +1,86 @@
+﻿<ui:Page x:Class="SpicetifyManager.Pages.SettingsPage"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:ui="http://schemas.modernwpf.com/2019"
+         mc:Ignorable="d" d:DesignHeight="438" d:DesignWidth="700" Title="SettingsPage">
+    <Page.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="0,2,0,0"/>
+        </Style>
+    </Page.Resources>
+    <ui:SimpleStackPanel>
+        <Label Content="Settings" Style="{StaticResource PageTitle}"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!--Grid Content-->
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition MaxWidth="600"/>
+                </Grid.ColumnDefinitions>
+                <!--Grid Content-->
+                <Label Grid.Column="0" Grid.Row="0" Content="Prefs Path: "/>
+                <Label Grid.Column="0" Grid.Row="1" Content="Spotify Path: "/>
+                <Label Grid.Column="0" Grid.Row="2" Content="Spotify Launch Flags: "/>
+                <TextBox x:Name="Prefs" Grid.Column="1" Grid.Row="0" Style="{StaticResource TextBoxStyle}"
+                         FontSize="14" Padding="7,0,0,0" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="SpotifyPath" Grid.Column="1" Grid.Row="1" Style="{StaticResource TextBoxStyle}"
+                         FontSize="14" Padding="7,0,0,0" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="LaunchFlags" Grid.Column="1" Grid.Row="2" Style="{StaticResource TextBoxStyle}"
+                         FontSize="14" Padding="7,0,0,0" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Row="1" Margin="0,25,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <!--Grid Content-->
+                <CheckBox Grid.Column="0" Grid.Row="0" x:Name="OverwriteAssets" Content="Overwrite Assets"
+                          Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox Grid.Column="0" Grid.Row="1" x:Name="CheckSpicetifyUpgrade" Content="Check Spicetify Upgrade"
+                          Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox Grid.Column="0" Grid.Row="2" x:Name="InjectCss" Content="Inject CSS"
+                          Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox Grid.Column="0" Grid.Row="3" x:Name="ReplaceColors" Content="Replace Colors"
+                          Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox Grid.Column="0" Grid.Row="4" x:Name="HomeConfig" Content="Home Config"
+                          Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox Grid.Column="0" Grid.Row="5" x:Name="SidebarConfig" Content="Sidebar Config"
+                          Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox Grid.Column="0" Grid.Row="6" x:Name="ExperimentalFeatures" Content="Experimental Features"
+                          Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox Grid.Column="1" Grid.Row="0" x:Name="DisableSentry" Content="Disable Sentry"
+                          Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox Grid.Column="1" Grid.Row="1" x:Name="DisableUILogging" Content="Disable UI Logging"
+                          Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox Grid.Column="1" Grid.Row="2" x:Name="RemoveRTLRules" Content="Remove RTL Rules"
+                          Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox Grid.Column="1" Grid.Row="3" x:Name="ExposeAPIs" Content="Expose API's"
+                          Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox Grid.Column="1" Grid.Row="4" x:Name="DisableUpgradeCheck" Content="Disable Upgrade Check"
+                          Style="{StaticResource CheckBoxStyle}"/>
+            </Grid>
+        </Grid>
+    </ui:SimpleStackPanel>
+</ui:Page>

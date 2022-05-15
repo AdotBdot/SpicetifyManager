@@ -1,0 +1,26 @@
+﻿<ui:Page x:Class="SpicetifyManager.Pages.ManagePage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:ui="http://schemas.modernwpf.com/2019"
+         mc:Ignorable="d" d:DesignHeight="438" d:DesignWidth="700" Title="ManagePage">
+    <ui:SimpleStackPanel Spacing="11">
+        <Label Content="Manage" Style="{StaticResource PageTitle}"/>
+        <ui:DropDownButton x:Name="UpgradeBtn" Width="140" Height="40" Margin="0,0,17,0" Content="Upgrade"
+                           Style="{StaticResource DropDownButtonStyle}">
+            <ui:DropDownButton.Flyout>
+                <ui:MenuFlyout>
+                    <MenuItem x:Name="UpgradeOnly" Header="Upgrade Only" Click="UpgradeOnly_OnClick"/>
+                    <MenuItem x:Name="FullUpgrade" Header="Full Upgrade" Click="FullUpgrade_OnClick"/>
+                </ui:MenuFlyout>
+            </ui:DropDownButton.Flyout>
+        </ui:DropDownButton>
+        <Button x:Name="RestartBtn" Width="140" Height="40" Margin="0,0,17,0" Content="Restart Spotify"
+                Click="RestartBtn_OnClick" Style="{StaticResource ButtonStyle}"/>
+        <Button x:Name="BackupBtn" Width="140" Height="40" Margin="0,0,17,0" Content="Backup" Click="BackupBtn_OnClick"
+                Style="{StaticResource ButtonStyle}"/>
+        <Button x:Name="ClearBtn" Width="140" Height="40" Margin="0,0,17,0" Content="Clear Backup"
+                Click="ClearBtn_OnClick" Style="{StaticResource ButtonStyle}"/>
+        <Button x:Name="RestoreBtn" Width="140" Height="40" Margin="0,0,17,0" Content="Restore Spotify"
+                Click="RestoreBtn_OnClick" Style="{StaticResource ButtonStyle}"/>
+    </ui:SimpleStackPanel>
+</ui:Page>
