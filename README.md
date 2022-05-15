@@ -3,7 +3,8 @@
    <a href="https://github.com/AdotBdot/SpicetifyManager/releases/latest"><img src="https://img.shields.io/github/v/release/AdotBdot/SpicetifyManager.svg"></a>
    <a href="https://github.com/AdotBdot/SpicetifyManager/releases"><img src="https://img.shields.io/github/downloads/AdotBdot/SpicetifyManager/total.svg"></a>
 </p>
-ModernWPF tool for ease of use <a href="https://spicetify.app/">Spicetify</a>.
+ModernWPF tool for ease of use <a href="https://spicetify.app/">Spicetify</a>. 
+<img src="https://github.com/AdotBdot/SpicetifyManager/blob/master/Resources/screenshot.png" height=420/>
 
 ## Features
  - Autodetection of themes, colors, plugins ans custom apps.
