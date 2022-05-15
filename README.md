@@ -15,6 +15,6 @@ ModernWPF tool for ease of use <a href="https://spicetify.app/">Spicetify</a>.
  - Microsoft Windows build 10.0.18362.0 or higher.
 
 ## References
- - ModernWPF: <a href=https://github.com/Kinnara/ModernWpf>https://github.com/Kinnara/ModernWpf</a>
+ - ModernWpf: <a href=https://github.com/Kinnara/ModernWpf>https://github.com/Kinnara/ModernWpf</a>
  - Octokit: <a href="https://github.com/octokit/octokit.net">https://github.com/octokit/octokit.net</a>
  - ini-parser: <a href="https://github.com/rickyah/ini-parser">https://github.com/rickyah/ini-parser</a>
