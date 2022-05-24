@@ -49,7 +49,7 @@ namespace SpicetifyManager.Pages
                 StaticData.Settings.CurrentTheme = ThemesListBox.SelectedItem.ToString();
 
             if(ColorSchemesListBox.SelectedItem == null)
-                StaticData.Settings.CurrentTheme = "";
+                StaticData.Settings.ColorScheme = "";
             else
                 StaticData.Settings.ColorScheme = ColorSchemesListBox.SelectedItem.ToString();
         }
