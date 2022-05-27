@@ -17,7 +17,7 @@ namespace SpicetifyManager.Pages
 
         private void Logger_Logged(object? sender, LogEventArgs e)
         {
-            Application.Current.Dispatcher.Invoke(new Action(() => LogBox.AppendText(e.Text + "\n")));
+            Application.Current.Dispatcher.Invoke(() => LogBox.AppendText(e.Text + "\n"));
         }
 
         private void LogBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
@@ -25,6 +25,11 @@ namespace SpicetifyManager.Pages
             LogBox.Focus();
             LogBox.CaretIndex = LogBox.Text.Length;
             LogBox.ScrollToEnd();
+        }
+
+        private void ClearLogsBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Dispatcher.Invoke(() => LogBox.Clear());
         }
     }
 }
