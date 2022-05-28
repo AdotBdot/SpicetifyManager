@@ -3,7 +3,6 @@
    <a href="https://github.com/AdotBdot/SpicetifyManager/releases/latest"><img src="https://img.shields.io/github/v/release/AdotBdot/SpicetifyManager.svg"></a>
    <a href="https://github.com/AdotBdot/SpicetifyManager/releases"><img src="https://img.shields.io/github/downloads/AdotBdot/SpicetifyManager/total.svg"></a>
 </p>
-ModernWPF tool for ease of use <a href="https://spicetify.app/">Spicetify</a>. 
 <img src="https://github.com/AdotBdot/SpicetifyManager/blob/master/Resources/screenshot.png" height=420/>
 
 ## Features
@@ -12,8 +11,8 @@ ModernWPF tool for ease of use <a href="https://spicetify.app/">Spicetify</a>.
  - Spicetify logs directly in app.
 
 ## Requirements
- - NET 6.0 Runtime. Can be downloaded <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">here</a>.
- - Microsoft Windows build 10.0.18362.0 or higher.
+ - NET 6.0.x Runtime. Can be downloaded <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">here</a>.
+ - Windows 11 or Windows 10(18362) or newer.
  - Latest version of spicetify-cli.
 
 ## References
