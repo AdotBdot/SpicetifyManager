@@ -12,7 +12,7 @@
 
 ## Requirements
  - NET 6.0.x Runtime. Can be downloaded <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">here</a>.
- - Windows 11 or Windows 10(18362) or newer.
+ - Windows 11 or Windows 10 (18362) or newer.
  - Latest version of spicetify-cli.
 
 ## References
