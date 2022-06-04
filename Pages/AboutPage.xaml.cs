@@ -29,14 +29,14 @@ namespace SpicetifyManager.Pages
 
         private async void CheckManagerVersion()
         {
-            var latestTag = await VersionChecker.GetLastTag("AdotBdot", "SpicetifyManagerApp");
+            var latestTag = await VersionChecker.GetLastTag("AdotBdot", "SpicetifyManager");
             var text = (latestTag == StaticData.Version) ? "You are up to date." : "Version " + latestTag + " available.";
             AppVersionStateLabel.Content = text;
         }
 
         private async void CheckSpicetifyVersion()
         {
-            var latestTag = await VersionChecker.GetLastTag("khanhas", "spicetify-cli");
+            var latestTag = await VersionChecker.GetLastTag("spicetify", "spicetify-cli");
             var text = (latestTag == "v" + StaticData.Spicetify.Version) ? "You are up to date." : "Version " + latestTag + " available.";
             SpicetifyVersionStateLabel.Content = text;
         }
