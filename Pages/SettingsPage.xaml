@@ -34,11 +34,11 @@
                 <Label Grid.Column="0" Grid.Row="0" Content="Prefs Path: "/>
                 <Label Grid.Column="0" Grid.Row="1" Content="Spotify Path: "/>
                 <Label Grid.Column="0" Grid.Row="2" Content="Spotify Launch Flags: "/>
-                <TextBox x:Name="Prefs" Grid.Column="1" Grid.Row="0" Style="{StaticResource TextBoxStyle}" BorderBrush="{StaticResource BorderBrush}"
+                <TextBox x:Name="Prefs" Grid.Column="1" Grid.Row="0" Style="{StaticResource TextBoxStyle}" Background="{StaticResource BgDarkBrush}" BorderBrush="{StaticResource BorderBrush}"
                          FontSize="14" Padding="7,0,0,0" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
-                <TextBox x:Name="SpotifyPath" Grid.Column="1" Grid.Row="1" Style="{StaticResource TextBoxStyle}" BorderBrush="{StaticResource BorderBrush}"
+                <TextBox x:Name="SpotifyPath" Grid.Column="1" Grid.Row="1" Style="{StaticResource TextBoxStyle}" Background="{StaticResource BgDarkBrush}" BorderBrush="{StaticResource BorderBrush}"
                          FontSize="14" Padding="7,0,0,0" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
-                <TextBox x:Name="LaunchFlags" Grid.Column="1" Grid.Row="2" Style="{StaticResource TextBoxStyle}" BorderBrush="{StaticResource BorderBrush}"
+                <TextBox x:Name="LaunchFlags" Grid.Column="1" Grid.Row="2" Style="{StaticResource TextBoxStyle}" Background="{StaticResource BgDarkBrush}" BorderBrush="{StaticResource BorderBrush}"
                          FontSize="14" Padding="7,0,0,0" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
             </Grid>
             <Grid Grid.Row="1" Margin="0,25,0,0">
