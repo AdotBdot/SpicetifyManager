@@ -9,7 +9,7 @@
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Padding" Value="0,1,0,1"></Setter>
+            <Setter Property="Padding" Value="0,1,0,1"/>
         </Style>
         <Style TargetType="Label" x:Key="VersionStyle">
             <Setter Property="FontSize" Value="17"/>
