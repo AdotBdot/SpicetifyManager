@@ -3,6 +3,8 @@
     <!--Colors-->
     <Color x:Key="Primary">#E8493D</Color>
     <Color x:Key="Secondary">#F79126</Color>
+    <Color x:Key="Background">#141414</Color>
+    <Color x:Key="Border">#444444</Color>
     <!--Brushes-->
     <LinearGradientBrush x:Key="BgBrush" StartPoint="0,1" EndPoint="1,0">
         <GradientStop Color="{StaticResource Primary}" Offset="0"/>
@@ -16,4 +18,6 @@
     </LinearGradientBrush>
     <SolidColorBrush x:Key="PrimarySolid" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondarySolid" Color="{StaticResource Secondary}"/>
+    <SolidColorBrush x:Key="BgDarkBrush" Color="{StaticResource Background}"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource Border}"/>
 </ResourceDictionary>
