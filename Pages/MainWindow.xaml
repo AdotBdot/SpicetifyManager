@@ -12,23 +12,17 @@
         <ui:SimpleStackPanel x:Name="NavBar" Grid.Column="0" Orientation="Vertical" Width="170" Spacing="7"
                              Background="#141414">
             <Button x:Name="ThemesBtn" Tag="Nav_ThemesBtn" Content="Themes" Click="ThemesBtn_Click"
-                    Style="{StaticResource NavBtn}" Height="48" Width="170" Padding="23,0,0,0"
-                    HorizontalContentAlignment="Left" FontSize="19" FontWeight="Bold" Margin="0,7,0,0"/>
+                    Style="{StaticResource NavBtn}" Height="48" Width="170" Margin="0,7,0,0"/>
             <Button x:Name="PluginsBtn" Tag="Nav_PluginsBtn" Content="Plugins" Click="PluginsBtn_Click"
-                    Style="{StaticResource NavBtn}" Height="48" Width="170" Padding="23,0,0,0"
-                    HorizontalContentAlignment="Left" FontSize="19" FontWeight="Bold"/>
+                    Style="{StaticResource NavBtn}" Height="48" Width="170"/>
             <Button x:Name="SettingsBtn" Tag="Nav_SettingsBtn" Content="Settings" Click="SettingsBtn_Click"
-                    Style="{StaticResource NavBtn}" Height="48" Width="170" Padding="23,0,0,0"
-                    HorizontalContentAlignment="Left" FontSize="19" FontWeight="Bold"/>
+                    Style="{StaticResource NavBtn}" Height="48" Width="170"/>
             <Button x:Name="ManageBtn" Tag="Nav_ManageBtn" Content="Manage" Click="ManageBtn_Click"
-                    Style="{StaticResource NavBtn}" Height="48" Width="170" Padding="23,0,0,0"
-                    HorizontalContentAlignment="Left" FontSize="19" FontWeight="Bold"/>
+                    Style="{StaticResource NavBtn}" Height="48" Width="170"/>
             <Button x:Name="AboutBtn" Tag="Nav_AboutBtn" Content="About" Click="AboutBtn_Click"
-                    Style="{StaticResource NavBtn}" Height="48" Width="170" Padding="23,0,0,0"
-                    HorizontalContentAlignment="Left" FontSize="19" FontWeight="Bold"/>
+                    Style="{StaticResource NavBtn}" Height="48" Width="170"/>
             <Button x:Name="LogsBtn" Tag="Nav_LogsBtn" Content="Logs" Click="LogsBtn_Click"
-                    Style="{StaticResource NavBtn}" Height="48" Width="170" Padding="23,0,0,0"
-                    HorizontalContentAlignment="Left" FontSize="19" FontWeight="Bold"/>
+                    Style="{StaticResource NavBtn}" Height="48" Width="170"/>
         </ui:SimpleStackPanel>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>

@@ -68,18 +68,18 @@
 
     <Style x:Key="NavBtnSelected" TargetType="Button">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
-        <Setter Property="Background" Value="#141414"/>
+        <Setter Property="Background" Value="{StaticResource BgDarkBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}"/>
         <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThemeThickness}"/>
-        <Setter Property="Padding" Value="{StaticResource ButtonPadding}"/>
+        <Setter Property="Padding" Value="23,0,0,0"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}"/>
-        <Setter Property="FontWeight" Value="Normal"/>
-        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="19"/>
         <Setter Property="FocusVisualStyle" Value="{DynamicResource {x:Static SystemParameters.FocusVisualStyleKey}}"/>
         <Setter Property="ui:FocusVisualHelper.UseSystemFocusVisuals" Value="{DynamicResource UseSystemFocusVisuals}"/>
         <Setter Property="ui:FocusVisualHelper.FocusVisualMargin" Value="-3"/>
@@ -132,18 +132,18 @@
 
     <Style x:Key="NavBtn" TargetType="Button">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
-        <Setter Property="Background" Value="#141414"/>
+        <Setter Property="Background" Value="{StaticResource BgDarkBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}"/>
         <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThemeThickness}"/>
-        <Setter Property="Padding" Value="{StaticResource ButtonPadding}"/>
+        <Setter Property="Padding" Value="23,0,0,0"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}"/>
-        <Setter Property="FontWeight" Value="Normal"/>
-        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="19"/>
         <Setter Property="FocusVisualStyle" Value="{DynamicResource {x:Static SystemParameters.FocusVisualStyleKey}}"/>
         <Setter Property="ui:FocusVisualHelper.UseSystemFocusVisuals" Value="{DynamicResource UseSystemFocusVisuals}"/>
         <Setter Property="ui:FocusVisualHelper.FocusVisualMargin" Value="-3"/>

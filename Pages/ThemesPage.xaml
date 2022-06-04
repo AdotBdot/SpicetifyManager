@@ -8,22 +8,29 @@
             <Setter Property="FontSize" Value="19"/>
             <Setter Property="Foreground" Value="White"/>
         </Style>
+        <Style TargetType="ui:ListView">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Margin" Value="0,7,0,0"/>
+            <Setter Property="Background" Value="{StaticResource BgDarkBrush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="MaxHeight" Value="320"/>
+        </Style>
     </Page.Resources>
     <ui:SimpleStackPanel>
         <Label Content="Themes" Style="{StaticResource PageTitle}"/>
         <ui:SimpleStackPanel Orientation="Horizontal" Spacing="23">
             <ui:SimpleStackPanel Orientation="Vertical">
                 <Label Content="Theme"/>
-                <ui:ListView x:Name="ThemesListBox" Style="{StaticResource ListViewStyle}" Background="{StaticResource BgDarkBrush}"
-                             BorderBrush="{StaticResource BorderBrush}" Foreground="White" BorderThickness="1" Margin="0,7,0,0" Width="200"
-                             MaxHeight="320" ui:ScrollViewerHelper.AutoHideScrollBars="True" SelectionMode="Single"
+                <ui:ListView x:Name="ThemesListBox" Width="200" MaxHeight="320"
+                             ui:ScrollViewerHelper.AutoHideScrollBars="True" SelectionMode="Single"
                              SelectionChanged="ThemesListBox_OnSelectionChanged"/>
             </ui:SimpleStackPanel>
             <ui:SimpleStackPanel Orientation="Vertical">
                 <Label Content="Color Scheme"/>
-                <ui:ListView x:Name="ColorSchemesListBox" Style="{StaticResource ListViewStyle}" Background="{StaticResource BgDarkBrush}"
-                             BorderBrush="{StaticResource BorderBrush}" Foreground="White" BorderThickness="1" Margin="0,7,0,0" Width="200"
-                             MaxHeight="320" ui:ScrollViewerHelper.AutoHideScrollBars="True" SelectionMode="Single"/>
+                <ui:ListView x:Name="ColorSchemesListBox" Width="200" MaxHeight="320"
+                             ui:ScrollViewerHelper.AutoHideScrollBars="True" SelectionMode="Single"/>
             </ui:SimpleStackPanel>
         </ui:SimpleStackPanel>
     </ui:SimpleStackPanel>

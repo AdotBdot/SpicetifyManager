@@ -11,8 +11,8 @@
         <Style TargetType="ui:ListView">
             <Setter Property="Width" Value="200"/>
             <Setter Property="Margin" Value="0,7,0,0"/>
-            <Setter Property="Background" Value="#333333"/>
-            <Setter Property="BorderBrush" Value="#333333"/>
+            <Setter Property="Background" Value="{StaticResource BgDarkBrush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="MaxHeight" Value="320"/>
@@ -27,12 +27,12 @@
             <ui:SimpleStackPanel>
                 <Label Content="Extensions"/>
                 <ui:ListView x:Name="PluginsList" Width="200" MaxHeight="320" SelectionMode="Multiple"
-                             ui:ScrollViewerHelper.AutoHideScrollBars="True" Background="{StaticResource BgDarkBrush}" BorderBrush="{StaticResource BorderBrush}"/>
+                             ui:ScrollViewerHelper.AutoHideScrollBars="True"/>
             </ui:SimpleStackPanel>
             <ui:SimpleStackPanel>
                 <Label Content="Custom Apps"/>
                 <ui:ListView x:Name="CustomAppsList" Width="200" MaxHeight="320" SelectionMode="Multiple"
-                             ui:ScrollViewerHelper.AutoHideScrollBars="True" Background="{StaticResource BgDarkBrush}" BorderBrush="{StaticResource BorderBrush}"/>
+                             ui:ScrollViewerHelper.AutoHideScrollBars="True"/>
             </ui:SimpleStackPanel>
         </ui:SimpleStackPanel>
     </ui:SimpleStackPanel>
