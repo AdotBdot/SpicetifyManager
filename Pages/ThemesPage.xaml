@@ -14,15 +14,15 @@
         <ui:SimpleStackPanel Orientation="Horizontal" Spacing="23">
             <ui:SimpleStackPanel Orientation="Vertical">
                 <Label Content="Theme"/>
-                <ui:ListView x:Name="ThemesListBox" Style="{StaticResource ListViewStyle}" Background="#333333"
-                             BorderBrush="#333333" Foreground="White" BorderThickness="1" Margin="0,7,0,0" Width="200"
+                <ui:ListView x:Name="ThemesListBox" Style="{StaticResource ListViewStyle}" Background="{StaticResource BgDarkBrush}"
+                             BorderBrush="{StaticResource BorderBrush}" Foreground="White" BorderThickness="1" Margin="0,7,0,0" Width="200"
                              MaxHeight="320" ui:ScrollViewerHelper.AutoHideScrollBars="True" SelectionMode="Single"
                              SelectionChanged="ThemesListBox_OnSelectionChanged"/>
             </ui:SimpleStackPanel>
             <ui:SimpleStackPanel Orientation="Vertical">
                 <Label Content="Color Scheme"/>
-                <ui:ListView x:Name="ColorSchemesListBox" Style="{StaticResource ListViewStyle}" Background="#333333"
-                             BorderBrush="#333333" Foreground="White" BorderThickness="1" Margin="0,7,0,0" Width="200"
+                <ui:ListView x:Name="ColorSchemesListBox" Style="{StaticResource ListViewStyle}" Background="{StaticResource BgDarkBrush}"
+                             BorderBrush="{StaticResource BorderBrush}" Foreground="White" BorderThickness="1" Margin="0,7,0,0" Width="200"
                              MaxHeight="320" ui:ScrollViewerHelper.AutoHideScrollBars="True" SelectionMode="Single"/>
             </ui:SimpleStackPanel>
         </ui:SimpleStackPanel>

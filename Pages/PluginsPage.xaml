@@ -27,12 +27,12 @@
             <ui:SimpleStackPanel>
                 <Label Content="Extensions"/>
                 <ui:ListView x:Name="PluginsList" Width="200" MaxHeight="320" SelectionMode="Multiple"
-                             ui:ScrollViewerHelper.AutoHideScrollBars="True"/>
+                             ui:ScrollViewerHelper.AutoHideScrollBars="True" Background="{StaticResource BgDarkBrush}" BorderBrush="{StaticResource BorderBrush}"/>
             </ui:SimpleStackPanel>
             <ui:SimpleStackPanel>
                 <Label Content="Custom Apps"/>
                 <ui:ListView x:Name="CustomAppsList" Width="200" MaxHeight="320" SelectionMode="Multiple"
-                             ui:ScrollViewerHelper.AutoHideScrollBars="True"/>
+                             ui:ScrollViewerHelper.AutoHideScrollBars="True" Background="{StaticResource BgDarkBrush}" BorderBrush="{StaticResource BorderBrush}"/>
             </ui:SimpleStackPanel>
         </ui:SimpleStackPanel>
     </ui:SimpleStackPanel>
