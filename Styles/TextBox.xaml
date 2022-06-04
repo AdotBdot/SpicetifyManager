@@ -61,15 +61,15 @@
                                                 <Setter Property="BorderBrush" TargetName="ButtonLayoutGrid"
                                                         Value="{DynamicResource TextControlButtonBorderBrushPointerOver}"/>
                                                 <Setter Property="Foreground" TargetName="GlyphElement"
-                                                        Value="{DynamicResource TextControlButtonForegroundPointerOver}"/>
+                                                        Value="{StaticResource SecondarySolid}"/>
                                             </Trigger>
                                             <Trigger Property="IsPressed" Value="true">
                                                 <Setter Property="Background" TargetName="ButtonLayoutGrid"
-                                                        Value="{DynamicResource TextControlButtonBackgroundPressed}"/>
+                                                        Value="Transparent"/>
                                                 <Setter Property="BorderBrush" TargetName="ButtonLayoutGrid"
                                                         Value="{DynamicResource TextControlButtonBorderBrushPressed}"/>
                                                 <Setter Property="Foreground" TargetName="GlyphElement"
-                                                        Value="{DynamicResource TextControlButtonForegroundPressed}"/>
+                                                        Value="{StaticResource BgBrushInv}"/>
                                             </Trigger>
                                             <Trigger Property="IsEnabled" Value="false">
                                                 <Setter Property="Opacity" TargetName="ButtonLayoutGrid" Value="0"/>
