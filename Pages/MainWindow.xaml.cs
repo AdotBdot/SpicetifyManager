@@ -67,7 +67,7 @@ namespace SpicetifyManager.Pages
             ((PluginsPage)Pages["Nav_Plugins"]).ReadInput();
             ((SettingsPage)Pages["Nav_Settings"]).ReadInput();
 
-            Task.Run(SaveAll);
+            SaveAll();
         }
 
         //Other
