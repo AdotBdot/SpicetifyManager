@@ -187,10 +187,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            Logger.Log("Applying...");
             ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "apply", true);
-
-            Logger.Log("Applied!");
         }
 
         public async Task Backup()
@@ -198,10 +195,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            Logger.Log("Backuping...");
             ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "backup", true);
-
-            Logger.Log("Backup Done!");
         }
 
         public async Task Clear()
@@ -209,10 +203,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            Logger.Log("Clearing Backup...");
             ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "-q clear", true);
-
-            Logger.Log("Backup Cleared!");
         }
 
         public async Task Update()
@@ -220,10 +211,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            Logger.Log("Updating...");
             ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "update", true);
-
-            Logger.Log("Updated");
         }
 
         public async Task Restore()
@@ -231,10 +219,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            Logger.Log("Restoring Spotify...");
             ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "restore", true);
-
-            Logger.Log("Restored!");
         }
 
         public async Task Upgrade()
@@ -242,10 +227,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            Logger.Log("Upgrading Spicetify...");
             ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "upgrade", true);
-
-            Logger.Log("Upgraded!");
         }
 
         public async Task FullUpgrade()
@@ -266,10 +248,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            Logger.Log("Restarting Spotify...");
             ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "restart", true);
-
-            Logger.Log("Restarted!");
         }
 
         private string ReadVersion()
