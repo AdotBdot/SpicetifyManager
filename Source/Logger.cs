@@ -6,9 +6,9 @@ namespace SpicetifyManager
     {
         public static event EventHandler<LogEventArgs> Logged;
 
-        public static void Log(string text, bool intend = false)
+        public static void Log(string text, bool indent = false)
         {
-            Logged?.Invoke(null, intend == true ? new LogEventArgs("  " + text) : new LogEventArgs(text));
+            Logged?.Invoke(null, indent == true ? new LogEventArgs("  " + text) : new LogEventArgs(text));
         }
     }
 
