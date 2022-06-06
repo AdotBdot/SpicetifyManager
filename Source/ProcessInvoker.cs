@@ -43,7 +43,7 @@ namespace SpicetifyManager.Source
 
                 Logger.Log(ClearEscapeSeq(line), true);
                 if(printToConsole)
-                    Console.WriteLine("  " + ClearEscapeSeq(line));
+                    Console.WriteLine("   " + ClearEscapeSeq(line));
             }
 
             process.WaitForExit();
