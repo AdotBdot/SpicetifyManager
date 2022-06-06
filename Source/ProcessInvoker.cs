@@ -20,7 +20,20 @@ namespace SpicetifyManager.Source
                 },
             };
 
-            process.Start();
+            try
+            {
+                process.Start();
+            }
+            catch(Exception e)
+            {
+                Logger.Log(e.Message);
+                Console.WriteLine(e);
+                throw;
+            }
+
+            Logger.Log(fileName + " " + args);
+            if(printToConsole)
+                Console.WriteLine(fileName + " " + args);
 
             List<string> result = new();
             while(!process.StandardOutput.EndOfStream)
@@ -29,7 +42,6 @@ namespace SpicetifyManager.Source
                 result.Add(line);
 
                 Logger.Log(ClearEscapeSeq(line), true);
-
                 if(printToConsole)
                     Console.WriteLine("  " + ClearEscapeSeq(line));
             }
