@@ -48,7 +48,7 @@
                         <ui:DropDownButton x:Name="OpenBtn" Style="{StaticResource DropDownButtonStyle}" Width="100"
                                            Content="Open">
                             <ui:DropDownButton.Flyout>
-                                <ui:MenuFlyout>
+                                <ui:MenuFlyout Placement="TopEdgeAlignedLeft">
                                     <MenuItem x:Name="ThemesFolder" Header="Themes Folder" Click="ThemesFolder_OnClick"/>
                                     <MenuItem x:Name="PluginsFolder" Header="Extensions Folder"
                                               Click="PluginsFolder_OnClick"/>
@@ -59,13 +59,10 @@
                             </ui:DropDownButton.Flyout>
                         </ui:DropDownButton>
                     </ui:SimpleStackPanel>
-                    <ui:SimpleStackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right"
-                                         Spacing="7">
-                        <Button x:Name="ReloadBtn" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right"
-                                Height="32" Click="ReloadBtn_OnClick">
-                            <ui:FontIcon FontFamily="Segoe MDL2 Assets" FontSize="19" Glyph="&#xE72C;"/>
-                        </Button>
-                    </ui:SimpleStackPanel>
+                    <Button Grid.Column="1" x:Name="ReloadBtn" Style="{StaticResource ButtonStyle}"
+                            HorizontalAlignment="Right" Height="32" Click="ReloadBtn_OnClick">
+                        <ui:FontIcon FontFamily="Segoe MDL2 Assets" FontSize="19" Glyph="&#xE72C;"/>
+                    </Button>
                 </Grid>
             </Border>
         </Grid>
