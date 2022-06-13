@@ -8,7 +8,7 @@
         <ui:DropDownButton x:Name="UpgradeBtn" Width="140" Height="40" Content="Upgrade"
                            Style="{StaticResource DropDownButtonStyle}">
             <ui:DropDownButton.Flyout>
-                <ui:MenuFlyout>
+                <ui:MenuFlyout Placement="TopEdgeAlignedLeft">
                     <MenuItem x:Name="UpgradeOnly" Header="Upgrade Only" Click="UpgradeOnly_OnClick"/>
                     <MenuItem x:Name="FullUpgrade" Header="Full Upgrade" Click="FullUpgrade_OnClick"/>
                 </ui:MenuFlyout>
