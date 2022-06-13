@@ -3,10 +3,19 @@
          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
          xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:ui="http://schemas.modernwpf.com/2019"
          mc:Ignorable="d" d:DesignHeight="438" d:DesignWidth="700" Title="ManagePage">
+    <ui:Page.Resources>
+        <Style BasedOn="{StaticResource ButtonStyle}" TargetType="Button">
+            <Setter Property="Width" Value="140"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="11,0,0,0"/>
+        </Style>
+    </ui:Page.Resources>
     <ui:SimpleStackPanel Spacing="11">
         <Label Content="Manage" Style="{StaticResource PageTitle}"/>
         <ui:DropDownButton x:Name="UpgradeBtn" Width="140" Height="40" Content="Upgrade"
-                           Style="{StaticResource DropDownButtonStyle}">
+                           Style="{StaticResource DropDownButtonStyle}" HorizontalContentAlignment="Left"
+                           Padding="11,0,0,0">
             <ui:DropDownButton.Flyout>
                 <ui:MenuFlyout Placement="TopEdgeAlignedLeft">
                     <MenuItem x:Name="UpgradeOnly" Header="Upgrade Only" Click="UpgradeOnly_OnClick"/>
@@ -14,13 +23,9 @@
                 </ui:MenuFlyout>
             </ui:DropDownButton.Flyout>
         </ui:DropDownButton>
-        <Button x:Name="RestartBtn" Width="140" Height="40" Content="Restart Spotify" Click="RestartBtn_OnClick"
-                Style="{StaticResource ButtonStyle}"/>
-        <Button x:Name="BackupBtn" Width="140" Height="40" Content="Backup" Click="BackupBtn_OnClick"
-                Style="{StaticResource ButtonStyle}"/>
-        <Button x:Name="ClearBtn" Width="140" Height="40" Content="Clear Backup" Click="ClearBtn_OnClick"
-                Style="{StaticResource ButtonStyle}"/>
-        <Button x:Name="RestoreBtn" Width="140" Height="40" Content="Restore Spotify" Click="RestoreBtn_OnClick"
-                Style="{StaticResource ButtonStyle}"/>
+        <Button x:Name="RestartBtn" Content="Restart Spotify" Click="RestartBtn_OnClick"/>
+        <Button x:Name="BackupBtn" Content="Backup" Click="BackupBtn_OnClick"/>
+        <Button x:Name="ClearBtn" Content="Clear Backup" Click="ClearBtn_OnClick"/>
+        <Button x:Name="RestoreBtn" Content="Restore Spotify" Click="RestoreBtn_OnClick"/>
     </ui:SimpleStackPanel>
 </ui:Page>
