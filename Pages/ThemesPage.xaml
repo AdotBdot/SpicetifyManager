@@ -16,6 +16,8 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="MaxHeight" Value="320"/>
+            <Setter Property="ui:ScrollViewerHelper.AutoHideScrollBars" Value="True"/>
+            <Setter Property="SelectionMode" Value="Single"/>
         </Style>
     </Page.Resources>
     <ui:SimpleStackPanel>
@@ -23,14 +25,11 @@
         <ui:SimpleStackPanel Orientation="Horizontal" Spacing="23">
             <ui:SimpleStackPanel Orientation="Vertical">
                 <Label Content="Theme"/>
-                <ui:ListView x:Name="ThemesListBox" Width="200" MaxHeight="320"
-                             ui:ScrollViewerHelper.AutoHideScrollBars="True" SelectionMode="Single"
-                             SelectionChanged="ThemesListBox_OnSelectionChanged"/>
+                <ui:ListView x:Name="ThemesListBox" SelectionChanged="ThemesListBox_OnSelectionChanged"/>
             </ui:SimpleStackPanel>
             <ui:SimpleStackPanel Orientation="Vertical">
                 <Label Content="Color Scheme"/>
-                <ui:ListView x:Name="ColorSchemesListBox" Width="200" MaxHeight="320"
-                             ui:ScrollViewerHelper.AutoHideScrollBars="True" SelectionMode="Single"/>
+                <ui:ListView x:Name="ColorSchemesListBox"/>
             </ui:SimpleStackPanel>
         </ui:SimpleStackPanel>
     </ui:SimpleStackPanel>

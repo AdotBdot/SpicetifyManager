@@ -36,8 +36,7 @@
                 <ColumnDefinition Width="160"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Grid.Row="0" Style="{StaticResource LabelStyle}" Content="Version: "
-                   Margin="0,0,0,3"/>
+            <Label Grid.Column="0" Grid.Row="0" Style="{StaticResource LabelStyle}" Content="Version: " Margin="0,0,0,3"/>
             <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource LabelStyle}" Content="Spicetify Version: "
                    Margin="0,0,0,3"/>
             <ui:SimpleStackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Spacing="11">
@@ -68,10 +67,10 @@
             <ui:HyperlinkButton Grid.Column="1" Grid.Row="1" Style="{StaticResource HyperlinkStyle}"
                                 Content="github.com/AdotBdot/SpicetifyManager/issues"
                                 NavigateUri="https://github.com/AdotBdot/SpicetifyManager/issues"/>
-            <ui:HyperlinkButton Grid.Column="1" Grid.Row="2" Style="{StaticResource HyperlinkStyle}"
-                                Content="spicetify.app" NavigateUri="https://spicetify.app/"/>
+            <ui:HyperlinkButton Grid.Column="1" Grid.Row="2" Style="{StaticResource HyperlinkStyle}" Content="spicetify.app"
+                                NavigateUri="https://spicetify.app/"/>
         </Grid>
-        <Button x:Name="CheckVersionBtn" Width="Auto" Margin="0,11,0,0" Content="Check Versions"
-                Click="CheckVersionBtn_OnClick" Style="{StaticResource ButtonStyle}"/>
+        <Button x:Name="CheckVersionBtn" Width="Auto" Margin="0,11,0,0" Content="Check Versions" Click="CheckVersionBtn_OnClick"
+                Style="{StaticResource ButtonStyle}"/>
     </ui:SimpleStackPanel>
 </ui:Page>

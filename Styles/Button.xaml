@@ -31,15 +31,14 @@
                                 CornerRadius="{TemplateBinding ui:ControlHelper.CornerRadius}">
                             <ContentPresenter x:Name="ContentPresenter"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Focusable="False" RecognizesAccessKey="True"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Focusable="False"
+                                              RecognizesAccessKey="True"
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                         </Border>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Background" Property="Background"
-                                    Value="{StaticResource SecondarySolid}"/>
+                            <Setter TargetName="Background" Property="Background" Value="{StaticResource SecondarySolid}"/>
                             <Setter TargetName="Border" Property="BorderBrush"
                                     Value="{DynamicResource ButtonBorderBrushPointerOver}"/>
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground"
@@ -47,8 +46,7 @@
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="Background" Property="Background" Value="{StaticResource BgBrushInv}"/>
-                            <Setter TargetName="Border" Property="BorderBrush"
-                                    Value="{DynamicResource ButtonBorderBrushPressed}"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPressed}"/>
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground"
                                     Value="{DynamicResource ButtonForegroundPressed}"/>
                         </Trigger>
@@ -95,15 +93,14 @@
                                 CornerRadius="{TemplateBinding ui:ControlHelper.CornerRadius}">
                             <ContentPresenter x:Name="ContentPresenter"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Focusable="False" RecognizesAccessKey="True"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Focusable="False"
+                                              RecognizesAccessKey="True"
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                         </Border>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Background" Property="Background"
-                                    Value="{StaticResource SecondarySolid}"/>
+                            <Setter TargetName="Background" Property="Background" Value="{StaticResource SecondarySolid}"/>
                             <Setter TargetName="Border" Property="BorderBrush"
                                     Value="{DynamicResource ButtonBorderBrushPointerOver}"/>
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground"
@@ -111,8 +108,7 @@
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="Background" Property="Background" Value="{StaticResource BgBrushInv}"/>
-                            <Setter TargetName="Border" Property="BorderBrush"
-                                    Value="{DynamicResource ButtonBorderBrushPressed}"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPressed}"/>
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground"
                                     Value="{DynamicResource ButtonForegroundPressed}"/>
                         </Trigger>
@@ -159,8 +155,8 @@
                                 CornerRadius="{TemplateBinding ui:ControlHelper.CornerRadius}">
                             <ContentPresenter x:Name="ContentPresenter"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Focusable="False" RecognizesAccessKey="True"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Focusable="False"
+                                              RecognizesAccessKey="True"
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                         </Border>
                     </Border>
@@ -174,8 +170,7 @@
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="Background" Property="Background" Value="{StaticResource BgBrushInv}"/>
-                            <Setter TargetName="Border" Property="BorderBrush"
-                                    Value="{DynamicResource ButtonBorderBrushPressed}"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPressed}"/>
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground"
                                     Value="{DynamicResource ButtonForegroundPressed}"/>
                         </Trigger>

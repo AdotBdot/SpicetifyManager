@@ -1,9 +1,8 @@
 ﻿<ui:Page x:Class="SpicetifyManager.Pages.SpicetifyNotDetectedPage"
          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:ui="http://schemas.modernwpf.com/2019"
-         mc:Ignorable="d" d:DesignHeight="438" d:DesignWidth="700">
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+         xmlns:ui="http://schemas.modernwpf.com/2019" mc:Ignorable="d" d:DesignHeight="438" d:DesignWidth="700">
     <ui:SimpleStackPanel>
         <Label Content="Spicetify Not Detected" Style="{StaticResource PageTitle}"/>
         <TextBlock FontSize="14" Foreground="White">

@@ -16,6 +16,8 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="MaxHeight" Value="320"/>
+            <Setter Property="SelectionMode" Value="Multiple"/>
+            <Setter Property="ui:ScrollViewerHelper.AutoHideScrollBars" Value="True"/>
         </Style>
         <Style TargetType="ListViewItem">
             <Setter Property="Height" Value="40"/>
@@ -26,13 +28,11 @@
         <ui:SimpleStackPanel Orientation="Horizontal" Height="Auto" Spacing="23" VerticalAlignment="Stretch">
             <ui:SimpleStackPanel>
                 <Label Content="Extensions"/>
-                <ui:ListView x:Name="PluginsList" Width="200" MaxHeight="320" SelectionMode="Multiple"
-                             ui:ScrollViewerHelper.AutoHideScrollBars="True"/>
+                <ui:ListView x:Name="PluginsList"/>
             </ui:SimpleStackPanel>
             <ui:SimpleStackPanel>
                 <Label Content="Custom Apps"/>
-                <ui:ListView x:Name="CustomAppsList" Width="200" MaxHeight="320" SelectionMode="Multiple"
-                             ui:ScrollViewerHelper.AutoHideScrollBars="True"/>
+                <ui:ListView x:Name="CustomAppsList"/>
             </ui:SimpleStackPanel>
         </ui:SimpleStackPanel>
     </ui:SimpleStackPanel>
