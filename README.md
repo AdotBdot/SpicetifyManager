@@ -1,5 +1,5 @@
 # SpicetifyManager
-<span>
+<p align="left">
    <a href="https://github.com/AdotBdot/SpicetifyManager/releases/latest">
       <img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/AdotBdot/SpicetifyManager?sort=semver">
    </a>
@@ -10,8 +10,8 @@
    <br/>
    <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/AdotBdot/SpicetifyManager">
    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/AdotBdot/SpicetifyManager">
-</span>
-
+</p>
+   
 <img src="https://github.com/AdotBdot/SpicetifyManager/blob/master/Resources/screenshot.png" height=420/>
 
 ## Features
