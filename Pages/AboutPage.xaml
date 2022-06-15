@@ -1,8 +1,7 @@
 ﻿<ui:Page x:Class="SpicetifyManager.Pages.AboutPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:ui="http://schemas.modernwpf.com/2019"
-         mc:Ignorable="d" d:DesignHeight="438" d:DesignWidth="700" Title="AboutPage">
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:ui="http://schemas.modernwpf.com/2019" mc:Ignorable="d" d:DesignHeight="438"
+         d:DesignWidth="700" Title="AboutPage">
     <Page.Resources>
         <Style TargetType="Label" x:Key="LabelStyle">
             <Setter Property="FontSize" Value="17"/>
@@ -37,8 +36,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Grid.Row="0" Style="{StaticResource LabelStyle}" Content="Version: " Margin="0,0,0,3"/>
-            <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource LabelStyle}" Content="Spicetify Version: "
-                   Margin="0,0,0,3"/>
+            <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource LabelStyle}" Content="Spicetify Version: " Margin="0,0,0,3"/>
             <ui:SimpleStackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Spacing="11">
                 <Label x:Name="AppVersionLabel" Style="{StaticResource VersionStyle}" Content="0.0.0"/>
                 <Label x:Name="AppVersionStateLabel" Style="{StaticResource LabelStyle}" FontSize="15" Content=""/>
@@ -61,11 +59,9 @@
             <Label Grid.Column="0" Grid.Row="0" Style="{StaticResource LabelStyle}" Content="GitHub: "/>
             <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource LabelStyle}" Content="Bug Report: "/>
             <Label Grid.Column="0" Grid.Row="2" Style="{StaticResource LabelStyle}" Content="Spicetify: "/>
-            <ui:HyperlinkButton Grid.Column="1" Grid.Row="0" Style="{StaticResource HyperlinkStyle}"
-                                Content="github.com/AdotBdot/SpicetifyManager"
+            <ui:HyperlinkButton Grid.Column="1" Grid.Row="0" Style="{StaticResource HyperlinkStyle}" Content="github.com/AdotBdot/SpicetifyManager"
                                 NavigateUri="https://github.com/AdotBdot/SpicetifyManager"/>
-            <ui:HyperlinkButton Grid.Column="1" Grid.Row="1" Style="{StaticResource HyperlinkStyle}"
-                                Content="github.com/AdotBdot/SpicetifyManager/issues"
+            <ui:HyperlinkButton Grid.Column="1" Grid.Row="1" Style="{StaticResource HyperlinkStyle}" Content="github.com/AdotBdot/SpicetifyManager/issues"
                                 NavigateUri="https://github.com/AdotBdot/SpicetifyManager/issues"/>
             <ui:HyperlinkButton Grid.Column="1" Grid.Row="2" Style="{StaticResource HyperlinkStyle}" Content="spicetify.app"
                                 NavigateUri="https://spicetify.app/"/>

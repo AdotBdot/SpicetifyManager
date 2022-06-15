@@ -39,7 +39,7 @@ namespace SpicetifyManager.Pages
             ContentFrame.Navigate(StaticData.Spicetify.Detected ? Pages[navItemTag] : Pages["Nav_SpicetifyNotDetectedPage"]);
         }
 
-        private void ContentFrame_OnNavigated(object sender, NavigationEventArgs e)
+        private void ContentFrame_Navigated(object sender, NavigationEventArgs e)
         {
             if(ContentFrame.Content != null)
             {
@@ -56,12 +56,12 @@ namespace SpicetifyManager.Pages
         }
 
         //Buttons
-        private void ApplyBtn_OnClick(object sender, RoutedEventArgs e)
+        private void ApplyBtn_Click(object sender, RoutedEventArgs e)
         {
             Task.Run(() => StaticData.Spicetify.Apply());
         }
 
-        private void SaveBtn_OnClick(object sender, RoutedEventArgs e)
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             ((ThemesPage)Pages["Nav_Themes"]).ReadInput();
             ((PluginsPage)Pages["Nav_Plugins"]).ReadInput();
@@ -91,7 +91,7 @@ namespace SpicetifyManager.Pages
         }
 
         //Bottom Panel
-        private void UpdateBtn_OnClick(object sender, RoutedEventArgs e)
+        private void UpdateBtn_Click(object sender, RoutedEventArgs e)
         {
             ((ThemesPage)Pages["Nav_Themes"]).ReadInput();
             StaticData.Settings.SaveThemes();
@@ -99,27 +99,27 @@ namespace SpicetifyManager.Pages
             Task.Run(() => StaticData.Spicetify.Update());
         }
 
-        private void ThemesFolder_OnClick(object sender, RoutedEventArgs e)
+        private void ThemesFolder_Click(object sender, RoutedEventArgs e)
         {
             Task.Run(() => StaticData.Spicetify.OpenThemeFolder());
         }
 
-        private void PluginsFolder_OnClick(object sender, RoutedEventArgs e)
+        private void PluginsFolder_Click(object sender, RoutedEventArgs e)
         {
             Task.Run(() => StaticData.Spicetify.OpenExtensionsFolder());
         }
 
-        private void CustomAppsFolder_OnClick(object sender, RoutedEventArgs e)
+        private void CustomAppsFolder_Click(object sender, RoutedEventArgs e)
         {
             Task.Run(() => StaticData.Spicetify.OpenCustomAppsFolder());
         }
 
-        private void ConfigFile_OnClick(object sender, RoutedEventArgs e)
+        private void ConfigFile_Click(object sender, RoutedEventArgs e)
         {
             Task.Run(() => StaticData.Spicetify.OpenConfigFile());
         }
 
-        private void ReloadBtn_OnClick(object sender, RoutedEventArgs e)
+        private void ReloadBtn_Click(object sender, RoutedEventArgs e)
         {
             Reload();
         }
