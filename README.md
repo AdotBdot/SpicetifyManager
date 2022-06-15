@@ -5,10 +5,9 @@
    </a>
    <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/AdotBdot/SpicetifyManager/total">
    <img alt="GitHub commits since latest release (by SemVer)" src="https://img.shields.io/github/commits-since/AdotBdot/SpicetifyManager/latest?sort=semver">
+   <br/>
    <img alt="GitHub" src="https://img.shields.io/github/license/AdotBdot/SpicetifyManager">
-</span>
-<br/>
-<span>
+   <br/>
    <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/AdotBdot/SpicetifyManager">
    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/AdotBdot/SpicetifyManager">
 </span>
