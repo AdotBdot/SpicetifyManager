@@ -15,32 +15,32 @@ namespace SpicetifyManager.Pages
             InitializeComponent();
         }
 
-        private void UpgradeOnly_OnClick(object sender, RoutedEventArgs e)
+        private void UpgradeOnly_Click(object sender, RoutedEventArgs e)
         {
             Task.Run(() => StaticData.Spicetify.Upgrade());
         }
 
-        private void FullUpgrade_OnClick(object sender, RoutedEventArgs e)
+        private void FullUpgrade_Click(object sender, RoutedEventArgs e)
         {
             Task.Run(() => StaticData.Spicetify.FullUpgrade());
         }
 
-        private void RestartBtn_OnClick(object sender, RoutedEventArgs e)
+        private void RestartBtn_Click(object sender, RoutedEventArgs e)
         {
             Task.Run(() => StaticData.Spicetify.Restart());
         }
 
-        private void BackupBtn_OnClick(object sender, RoutedEventArgs e)
+        private void BackupBtn_Click(object sender, RoutedEventArgs e)
         {
             Task.Run(() => StaticData.Spicetify.Backup());
         }
 
-        private void ClearBtn_OnClick(object sender, RoutedEventArgs e)
+        private void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
             Task.Run(() => StaticData.Spicetify.Clear());
         }
 
-        private void RestoreBtn_OnClick(object sender, RoutedEventArgs e)
+        private void RestoreBtn_Click(object sender, RoutedEventArgs e)
         {
             Task.Run(() => StaticData.Spicetify.Restore());
         }

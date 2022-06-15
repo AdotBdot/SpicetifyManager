@@ -16,14 +16,14 @@
                            HorizontalContentAlignment="Left" Padding="11,0,9,0">
             <ui:DropDownButton.Flyout>
                 <ui:MenuFlyout Placement="TopEdgeAlignedLeft">
-                    <MenuItem x:Name="UpgradeOnly" Header="Upgrade Only" Click="UpgradeOnly_OnClick"/>
-                    <MenuItem x:Name="FullUpgrade" Header="Full Upgrade" Click="FullUpgrade_OnClick"/>
+                    <MenuItem x:Name="UpgradeOnly" Header="Upgrade Only" Click="UpgradeOnly_Click"/>
+                    <MenuItem x:Name="FullUpgrade" Header="Full Upgrade" Click="FullUpgrade_Click"/>
                 </ui:MenuFlyout>
             </ui:DropDownButton.Flyout>
         </ui:DropDownButton>
-        <Button x:Name="RestartBtn" Content="Restart Spotify" Click="RestartBtn_OnClick"/>
-        <Button x:Name="BackupBtn" Content="Backup" Click="BackupBtn_OnClick"/>
-        <Button x:Name="ClearBtn" Content="Clear Backup" Click="ClearBtn_OnClick"/>
-        <Button x:Name="RestoreBtn" Content="Restore Spotify" Click="RestoreBtn_OnClick"/>
+        <Button x:Name="RestartBtn" Content="Restart Spotify" Click="RestartBtn_Click"/>
+        <Button x:Name="BackupBtn" Content="Backup" Click="BackupBtn_Click"/>
+        <Button x:Name="ClearBtn" Content="Clear Backup" Click="ClearBtn_Click"/>
+        <Button x:Name="RestoreBtn" Content="Restore Spotify" Click="RestoreBtn_Click"/>
     </ui:SimpleStackPanel>
 </ui:Page>
