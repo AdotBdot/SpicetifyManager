@@ -43,6 +43,7 @@
                                     <ui:MenuFlyout.MenuFlyoutPresenterStyle>
                                         <Style TargetType="ui:MenuFlyoutPresenter">
                                             <Setter Property="Background" Value="{StaticResource BgDarkSolid}"/>
+                                            <Setter Property="BorderBrush" Value="{StaticResource BgBrightSolid}"/>
                                         </Style>
                                     </ui:MenuFlyout.MenuFlyoutPresenterStyle>
                                     <ui:MenuFlyout.Items>
