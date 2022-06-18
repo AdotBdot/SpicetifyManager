@@ -36,7 +36,7 @@
                 <ColumnDefinition Width="160"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Grid.Row="0" Style="{StaticResource LabelStyle}" Content="Version: " Margin="0,0,0,3"/>
+            <Label Grid.Column="0" Grid.Row="0" Style="{StaticResource LabelStyle}" Content="App Version: " Margin="0,0,0,3"/>
             <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource LabelStyle}" Content="Spicetify Version: " Margin="0,0,0,3"/>
             <Label Grid.Column="0" Grid.Row="2" Style="{StaticResource LabelStyle}" Content="Backup Version: " Margin="0,0,0,3"/>
             <ui:SimpleStackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Spacing="11">
