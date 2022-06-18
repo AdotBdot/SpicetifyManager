@@ -3,7 +3,7 @@
 
     <Style x:Key="DropDownButtonStyle" TargetType="ui:DropDownButton">
         <Setter Property="Background" Value="{DynamicResource ButtonBackground}"/>
-        <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}"/>
+        <Setter Property="Foreground" Value="White"/>
         <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}"/>
         <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThemeThickness}"/>
         <Setter Property="Padding" Value="{DynamicResource ButtonPadding}"/>
