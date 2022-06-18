@@ -48,8 +48,8 @@
                             </ui:DropDownButton.Flyout>
                         </ui:DropDownButton>
                     </ui:SimpleStackPanel>
-                    <Button Grid.Column="1" x:Name="ReloadBtn" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right" Click="ReloadBtn_Click">
-                        <ui:FontIcon FontFamily="Segoe MDL2 Assets" FontSize="19" Glyph="&#xE72C;"/>
+                    <Button Grid.Column="1" x:Name="ReloadBtn" Style="{StaticResource ActionBtnStyle}" Width="32" Padding="0" HorizontalAlignment="Right" Click="ReloadBtn_Click">
+                        <Image Source="{StaticResource RefreshArrow}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Width="Auto"/>
                     </Button>
                 </Grid>
             </Border>
