@@ -103,7 +103,7 @@ namespace SpicetifyManager
 
         private void ReadBackup()
         {
-            SpotifyVersion = _Reader.ReadString("Backup", "version");
+            BackupVersion = _Reader.ReadString("Backup", "version");
         }
 
         private Spicetify _Spicetify;
@@ -136,6 +136,6 @@ namespace SpicetifyManager
         public bool ExperimentalFeatures{get; set;}
 
         //Backup
-        public string SpotifyVersion;
+        public string BackupVersion;
     }
 }
