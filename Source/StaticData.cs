@@ -10,8 +10,11 @@ namespace SpicetifyManager.Source
             CliDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\spicetify-cli\");
 
             Spicetify = new Spicetify(UserDirectory, CliDirectory);
-            Settings = new Settings(Spicetify);
-            Settings.LoadConfig();
+            if(Spicetify.Detected)
+            {
+                Settings = new Settings(Spicetify);
+                Settings.LoadConfig();
+            }
         }
 
         public static void Reload()
