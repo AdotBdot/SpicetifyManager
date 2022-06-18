@@ -23,6 +23,7 @@
             </Style>
             <!-- Other app resources here -->
             <BitmapImage x:Key="Logo" UriSource="Resources/logo.png"/>
+            <BitmapImage x:Key="RefreshArrow" UriSource="Resources/sharp_refresh_white_24dp.png"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

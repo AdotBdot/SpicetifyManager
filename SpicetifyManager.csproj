@@ -28,12 +28,14 @@
   <ItemGroup>
     <None Remove="Resources\icon-1.png" />
     <None Remove="Resources\logo.png" />
+    <None Remove="Resources\sharp_refresh_white_24dp.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\icon-1.png" />
     <Resource Include="Resources\icon.ico" />
     <Resource Include="Resources\logo.png" />
+    <Resource Include="Resources\sharp_refresh_white_24dp.png" />
   </ItemGroup>
 
   <ItemGroup>
