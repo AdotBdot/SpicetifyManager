@@ -8,8 +8,8 @@
    <br/>
    <img alt="GitHub" src="https://img.shields.io/github/license/AdotBdot/SpicetifyManager">
    <br/>
-   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/AdotBdot/SpicetifyManager">
    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/AdotBdot/SpicetifyManager">
+   <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/AdotBdot/SpicetifyManager">
 </p>
    
 <img src="https://github.com/AdotBdot/SpicetifyManager/blob/master/Resources/screenshot.png" height=420/>
