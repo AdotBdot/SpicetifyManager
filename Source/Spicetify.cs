@@ -15,7 +15,7 @@ namespace SpicetifyManager
             _CliDirectory = cliDirectory;
 
             Detected = DetectSpicetify();
-            ConfigFile = GetConfigPath();
+            ConfigFile = ReadConfigPath();
             Version = ReadVersion();
 
             ListAll();
@@ -40,13 +40,6 @@ namespace SpicetifyManager
                 Console.WriteLine(e);
                 return false;
             }
-        }
-
-        public void ListAll()
-        {
-            ListThemes();
-            ListExtensions();
-            ListCustomApps();
         }
 
         public List<string> GetColors(string themeName)
@@ -105,22 +98,54 @@ namespace SpicetifyManager
 
             return returnValue;
         }
-
+        public List<string> GetCustomApps()
+        {
+            return _CustomApps;
+        }
+        public List<string> GetExtensions()
+        {
+            return _Extensions;
+        }
         public List<string> GetThemes()
         {
             return _Themes;
         }
 
-        public List<string> GetExtensions()
+        public void OpenConfigFile()
         {
-            return _Extensions;
-        }
+            if (!Detected)
+                return;
 
-        public List<string> GetCustomApps()
+            Process.Start(new ProcessStartInfo()
+            {
+                FileName = ReadConfigPath(),
+                UseShellExecute = true,
+            });
+        }
+        public void OpenCustomAppsFolder()
         {
-            return _CustomApps;
-        }
+            if (!Detected)
+                return;
 
+            Process.Start(new ProcessStartInfo()
+            {
+                FileName = _UserDirectory + "CustomApps\\",
+                UseShellExecute = true,
+                Verb = "open"
+            });
+        }
+        public void OpenExtensionsFolder()
+        {
+            if (!Detected)
+                return;
+
+            Process.Start(new ProcessStartInfo()
+            {
+                FileName = _UserDirectory + "Extensions\\",
+                UseShellExecute = true,
+                Verb = "open"
+            });
+        }
         public void OpenThemeFolder()
         {
             if(!Detected)
@@ -134,54 +159,6 @@ namespace SpicetifyManager
             });
         }
 
-        public void OpenExtensionsFolder()
-        {
-            if(!Detected)
-                return;
-
-            Process.Start(new ProcessStartInfo()
-            {
-                FileName = _UserDirectory + "Extensions\\",
-                UseShellExecute = true,
-                Verb = "open"
-            });
-        }
-
-        public void OpenCustomAppsFolder()
-        {
-            if(!Detected)
-                return;
-
-            Process.Start(new ProcessStartInfo()
-            {
-                FileName = _UserDirectory + "CustomApps\\",
-                UseShellExecute = true,
-                Verb = "open"
-            });
-        }
-
-        public void OpenConfigFile()
-        {
-            if(!Detected)
-                return;
-
-            Process.Start(new ProcessStartInfo()
-            {
-                FileName = GetConfigPath(),
-                UseShellExecute = true,
-            });
-        }
-
-        public string GetConfigPath()
-        {
-            if(!Detected)
-                return string.Empty;
-
-            List<string> results = ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "-c");
-
-            return results[0];
-        }
-
         public async Task Apply()
         {
             if(!Detected)
@@ -189,7 +166,6 @@ namespace SpicetifyManager
 
             ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "apply", true);
         }
-
         public async Task Backup()
         {
             if(!Detected)
@@ -197,7 +173,6 @@ namespace SpicetifyManager
 
             ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "backup", true);
         }
-
         public async Task Clear()
         {
             if(!Detected)
@@ -205,7 +180,20 @@ namespace SpicetifyManager
 
             ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "-q clear", true);
         }
+        public async Task Restart()
+        {
+            if (!Detected)
+                return;
 
+            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "restart", true);
+        }
+        public async Task Restore()
+        {
+            if (!Detected)
+                return;
+
+            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "restore", true);
+        }
         public async Task Update()
         {
             if(!Detected)
@@ -213,15 +201,6 @@ namespace SpicetifyManager
 
             ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "update", true);
         }
-
-        public async Task Restore()
-        {
-            if(!Detected)
-                return;
-
-            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "restore", true);
-        }
-
         public async Task Upgrade()
         {
             if(!Detected)
@@ -229,7 +208,6 @@ namespace SpicetifyManager
 
             ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "upgrade", true);
         }
-
         public async Task FullUpgrade()
         {
             if(!Detected)
@@ -243,14 +221,15 @@ namespace SpicetifyManager
             Logger.Log("Fully Upgraded!");
         }
 
-        public async Task Restart()
+        private string ReadConfigPath()
         {
-            if(!Detected)
-                return;
+            if (!Detected)
+                return string.Empty;
 
-            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "restart", true);
+            List<string> results = ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "-c");
+
+            return results[0];
         }
-
         private string ReadVersion()
         {
             if(!Detected)
@@ -260,6 +239,60 @@ namespace SpicetifyManager
             return results[0];
         }
 
+        public void ListAll()
+        {
+            ListThemes();
+            ListExtensions();
+            ListCustomApps();
+        }
+        private void ListCustomApps()
+        {
+            if (!Detected)
+            {
+                _CustomApps = new List<string>();
+                return;
+            }
+
+            _CustomApps = new List<string>();
+
+            //.spicetify
+            string[] userApps = Directory.GetDirectories(_UserDirectory + "CustomApps");
+            foreach (string app in userApps)
+            {
+                _CustomApps.Add(app.Substring(app.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+            }
+
+            //spicetify-cli
+            string[] buildInApps = Directory.GetDirectories(_CliDirectory + "\\CustomApps");
+            foreach (string app in buildInApps)
+            {
+                _CustomApps.Add(app.Substring(app.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+            }
+        }
+        private void ListExtensions()
+        {
+            if (!Detected)
+            {
+                _Extensions = new List<string>();
+                return;
+            }
+
+            _Extensions = new List<string>();
+
+            //.spicetify
+            string[] userExt = Directory.GetFiles(_UserDirectory + "Extensions");
+            foreach (string ext in userExt)
+            {
+                _Extensions.Add(ext.Substring(ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+            }
+
+            //spicetify-cli
+            string[] builtInExt = Directory.GetFiles(_CliDirectory + "Extensions");
+            foreach (string ext in builtInExt)
+            {
+                _Extensions.Add(ext.Substring(ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+            }
+        }
         private void ListThemes()
         {
             if(!Detected)
@@ -285,62 +318,12 @@ namespace SpicetifyManager
             }
         }
 
-        private void ListExtensions()
-        {
-            if(!Detected)
-            {
-                _Extensions = new List<string>();
-                return;
-            }
-
-            _Extensions = new List<string>();
-
-            //.spicetify
-            string[] userExt = Directory.GetFiles(_UserDirectory + "Extensions");
-            foreach(string ext in userExt)
-            {
-                _Extensions.Add(ext.Substring(ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
-            }
-
-            //spicetify-cli
-            string[] builtInExt = Directory.GetFiles(_CliDirectory + "Extensions");
-            foreach(string ext in builtInExt)
-            {
-                _Extensions.Add(ext.Substring(ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
-            }
-        }
-
-        private void ListCustomApps()
-        {
-            if(!Detected)
-            {
-                _CustomApps = new List<string>();
-                return;
-            }
-
-            _CustomApps = new List<string>();
-
-            //.spicetify
-            string[] userApps = Directory.GetDirectories(_UserDirectory + "CustomApps");
-            foreach(string app in userApps)
-            {
-                _CustomApps.Add(app.Substring(app.LastIndexOf("\\", StringComparison.Ordinal) + 1));
-            }
-
-            //spicetify-cli
-            string[] buildInApps = Directory.GetDirectories(_CliDirectory + "\\CustomApps");
-            foreach(string app in buildInApps)
-            {
-                _CustomApps.Add(app.Substring(app.LastIndexOf("\\", StringComparison.Ordinal) + 1));
-            }
-        }
-
         public string Version;
         public readonly string ConfigFile;
         public readonly bool Detected;
 
-        private List<string> _Extensions;
         private List<string> _CustomApps;
+        private List<string> _Extensions;
         private List<string> _Themes;
 
         private readonly string _UserDirectory;

@@ -50,14 +50,6 @@ namespace SpicetifyManager.Source
             return result;
         }
 
-        public static void PrintInvoke(List<string> results)
-        {
-            foreach(string line in results)
-            {
-                Console.WriteLine("  " + ClearEscapeSeq(line));
-            }
-        }
-
         private static string ClearEscapeSeq(string text)
         {
             while(text.Contains("\u001b"))

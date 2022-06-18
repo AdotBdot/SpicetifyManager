@@ -4,16 +4,10 @@ namespace SpicetifyManager
 {
     internal class ConfigFileWriter : ConfigFileLoader
     {
-        public void WriteString(string section, string key, string value)
-        {
-            Data[section][key] = value;
-        }
-
         public void WriteBool(string section, string key, bool value)
         {
             Data[section][key] = (value == true ? "1" : "0");
         }
-
         public void WriteList(string section, string key, List<string> value)
         {
             string s;
@@ -33,6 +27,10 @@ namespace SpicetifyManager
             }
 
             Data[section][key] = s;
+        }
+        public void WriteString(string section, string key, string value)
+        {
+            Data[section][key] = value;
         }
 
         public void WriteFile(string configFile)

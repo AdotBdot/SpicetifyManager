@@ -23,17 +23,6 @@ namespace SpicetifyManager
             ReadAdditionalOptions();
             ReadBackup();
         }
-
-        public void SaveThemes()
-        {
-            _Writer.LoadFile(_Spicetify.ConfigFile);
-
-            _Writer.WriteString("Setting", "current_theme", CurrentTheme);
-            _Writer.WriteString("Setting", "color_scheme", ColorScheme);
-
-            _Writer.WriteFile(_Spicetify.ConfigFile);
-        }
-
         public void SavePlugins()
         {
             _Writer.LoadFile(_Spicetify.ConfigFile);
@@ -43,7 +32,6 @@ namespace SpicetifyManager
 
             _Writer.WriteFile(_Spicetify.ConfigFile);
         }
-
         public void SaveSettings()
         {
             _Writer.LoadFile(_Spicetify.ConfigFile);
@@ -68,7 +56,15 @@ namespace SpicetifyManager
 
             _Writer.WriteFile(_Spicetify.ConfigFile);
         }
+        public void SaveThemes()
+        {
+            _Writer.LoadFile(_Spicetify.ConfigFile);
 
+            _Writer.WriteString("Setting", "current_theme", CurrentTheme);
+            _Writer.WriteString("Setting", "color_scheme", ColorScheme);
+
+            _Writer.WriteFile(_Spicetify.ConfigFile);
+        }
 
         private void ReadSetting()
         {
@@ -82,7 +78,6 @@ namespace SpicetifyManager
             ReplaceColors = _Reader.ReadBool("Setting", "replace_colors");
             SpotifyLaunchFlags = _Reader.ReadString("Setting", "spotify_launch_flags");
         }
-
         private void ReadPreprocesses()
         {
             DisableSentry = _Reader.ReadBool("Preprocesses", "disable_sentry");
@@ -91,7 +86,6 @@ namespace SpicetifyManager
             ExposeApis = _Reader.ReadBool("Preprocesses", "expose_apis");
             DisableUpgradeCheck = _Reader.ReadBool("Preprocesses", "disable_upgrade_check");
         }
-
         private void ReadAdditionalOptions()
         {
             HomeConfig = _Reader.ReadBool("AdditionalOptions", "home_config");
@@ -100,7 +94,6 @@ namespace SpicetifyManager
             SidebarConfig = _Reader.ReadBool("AdditionalOptions", "sidebar_config");
             ExperimentalFeatures = _Reader.ReadBool("AdditionalOptions", "experimental_features");
         }
-
         private void ReadBackup()
         {
             BackupVersion = _Reader.ReadString("Backup", "version");
