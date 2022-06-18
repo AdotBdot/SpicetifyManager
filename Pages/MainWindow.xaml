@@ -40,10 +40,17 @@
                         <ui:DropDownButton x:Name="OpenBtn" Style="{StaticResource DropDownButtonStyle}" Width="100" Content="Open">
                             <ui:DropDownButton.Flyout>
                                 <ui:MenuFlyout Placement="TopEdgeAlignedLeft">
-                                    <MenuItem x:Name="ThemesFolder" Header="Themes Folder" Click="ThemesFolder_Click"/>
-                                    <MenuItem x:Name="PluginsFolder" Header="Extensions Folder" Click="PluginsFolder_Click"/>
-                                    <MenuItem x:Name="CustomAppsFolder" Header="Custom Apps Folder" Click="CustomAppsFolder_Click"/>
-                                    <MenuItem x:Name="ConfigFile" Header="Config File" Click="ConfigFile_Click"/>
+                                    <ui:MenuFlyout.MenuFlyoutPresenterStyle>
+                                        <Style TargetType="ui:MenuFlyoutPresenter">
+                                            <Setter Property="Background" Value="{StaticResource BgDarkSolid}"/>
+                                        </Style>
+                                    </ui:MenuFlyout.MenuFlyoutPresenterStyle>
+                                    <ui:MenuFlyout.Items>
+                                        <MenuItem x:Name="ThemesFolder" Header="Themes Folder" Click="ThemesFolder_Click"/>
+                                        <MenuItem x:Name="PluginsFolder" Header="Extensions Folder" Click="PluginsFolder_Click"/>
+                                        <MenuItem x:Name="CustomAppsFolder" Header="Custom Apps Folder" Click="CustomAppsFolder_Click"/>
+                                        <MenuItem x:Name="ConfigFile" Header="Config File" Click="ConfigFile_Click"/>
+                                    </ui:MenuFlyout.Items>
                                 </ui:MenuFlyout>
                             </ui:DropDownButton.Flyout>
                         </ui:DropDownButton>
