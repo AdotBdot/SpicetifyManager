@@ -11,7 +11,7 @@
             <Setter Property="Width" Value="200"/>
             <Setter Property="Margin" Value="0,7,0,0"/>
             <Setter Property="Background" Value="{StaticResource BgDarkSolid}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource BrBrightSolid}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BgBrightSolid}"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="MaxHeight" Value="320"/>

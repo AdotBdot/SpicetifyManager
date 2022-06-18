@@ -12,7 +12,7 @@
         <Style BasedOn="{StaticResource TextBoxStyle}" TargetType="TextBox">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Padding" Value="7,0,0,0"/>
-            <Setter Property="BorderBrush" Value="{StaticResource BrBrightSolid}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BgBrightSolid}"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
