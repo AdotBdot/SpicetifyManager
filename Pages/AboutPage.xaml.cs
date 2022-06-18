@@ -19,6 +19,7 @@ namespace SpicetifyManager.Pages
         {
             AppVersionLabel.Content = StaticData.Version;
             SpicetifyVersionLabel.Content = StaticData.Spicetify.Version;
+            BackupVersionLabel.Content = StaticData.Settings.BackupVersion;
         }
 
         private void CheckVersionBtn_OnClick(object sender, RoutedEventArgs e)
