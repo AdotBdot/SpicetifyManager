@@ -12,6 +12,10 @@
     </ui:Page.Resources>
     <ui:SimpleStackPanel Spacing="11">
         <Label Content="Manage" Style="{StaticResource PageTitle}"/>
+        <Button x:Name="BackupBtn" Content="Backup" Click="BackupBtn_Click"/>
+        <Button x:Name="ClearBtn" Content="Clear Backup" Click="ClearBtn_Click"/>
+        <Button x:Name="RestartBtn" Content="Restart Spotify" Click="RestartBtn_Click"/>
+        <Button x:Name="RestoreBtn" Content="Restore Spotify" Click="RestoreBtn_Click"/>
         <ui:DropDownButton x:Name="UpgradeBtn" Width="140" Height="40" Content="Upgrade" Style="{StaticResource DropDownButtonStyle}"
                            HorizontalContentAlignment="Left" Padding="11,0,9,0">
             <ui:DropDownButton.Flyout>
@@ -19,6 +23,7 @@
                     <ui:MenuFlyout.MenuFlyoutPresenterStyle>
                         <Style TargetType="ui:MenuFlyoutPresenter">
                             <Setter Property="Background" Value="{StaticResource BgDarkSolid}"/>
+                            <Setter Property="BorderBrush" Value="{StaticResource BgBrightSolid}"/>
                         </Style>
                     </ui:MenuFlyout.MenuFlyoutPresenterStyle>
                     <ui:MenuFlyout.Items>
@@ -28,9 +33,5 @@
                 </ui:MenuFlyout>
             </ui:DropDownButton.Flyout>
         </ui:DropDownButton>
-        <Button x:Name="RestartBtn" Content="Restart Spotify" Click="RestartBtn_Click"/>
-        <Button x:Name="BackupBtn" Content="Backup" Click="BackupBtn_Click"/>
-        <Button x:Name="ClearBtn" Content="Clear Backup" Click="ClearBtn_Click"/>
-        <Button x:Name="RestoreBtn" Content="Restore Spotify" Click="RestoreBtn_Click"/>
     </ui:SimpleStackPanel>
 </ui:Page>
