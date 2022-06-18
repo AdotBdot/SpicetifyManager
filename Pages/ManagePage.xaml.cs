@@ -37,7 +37,9 @@ namespace SpicetifyManager.Pages
 
         private void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
-            Task.Run(() => StaticData.Spicetify.Clear());
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to clear the backup?", "Confirmation", MessageBoxButton.YesNoCancel);
+            if(result == MessageBoxResult.Yes)
+                Task.Run(() => StaticData.Spicetify.Clear());
         }
 
         private void RestoreBtn_Click(object sender, RoutedEventArgs e)
