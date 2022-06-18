@@ -18,5 +18,5 @@
     <SolidColorBrush x:Key="PrimarySolid" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondarySolid" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="BgDarkSolid" Color="{StaticResource Background}"/>
-    <SolidColorBrush x:Key="BrBrightSolid" Color="{StaticResource BackgroundBright}"/>
+    <SolidColorBrush x:Key="BgBrightSolid" Color="{StaticResource BackgroundBright}"/>
 </ResourceDictionary>
