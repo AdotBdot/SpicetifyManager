@@ -12,6 +12,7 @@
     <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyName>Spicetify Manager</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
