@@ -16,6 +16,7 @@
 
 ## Features
  - Autodetection of themes, colors, plugins and custom apps.
+ - Full support to Spicetify config file settings, preprocesses and additional options.
  - Portable, no installation required.
  - Spicetify logs directly in app.
 
@@ -26,5 +27,7 @@
 
 ## References
  - ini-parser: <a href="https://github.com/rickyah/ini-parser">https://github.com/rickyah/ini-parser</a>
+ - Material Design Icons: <a href="https://github.com/google/material-design-icons">https://github.com/google/material-design-icons</a>
  - ModernWpf: <a href=https://github.com/Kinnara/ModernWpf>https://github.com/Kinnara/ModernWpf</a>
  - Octokit: <a href="https://github.com/octokit/octokit.net">https://github.com/octokit/octokit.net</a>
+ - Spicetify: <a href="https://spicetify.app/">https://spicetify.app/</a>
