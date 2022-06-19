@@ -30,3 +30,4 @@
  - Material Design Icons: <a href="https://github.com/google/material-design-icons">https://github.com/google/material-design-icons</a>
  - ModernWpf: <a href=https://github.com/Kinnara/ModernWpf>https://github.com/Kinnara/ModernWpf</a>
  - Octokit: <a href="https://github.com/octokit/octokit.net">https://github.com/octokit/octokit.net</a>
+ - Spicetify: <a href="https://spicetify.app/">https://spicetify.app/</a>
