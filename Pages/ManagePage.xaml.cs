@@ -15,36 +15,31 @@ namespace SpicetifyManager.Pages
             InitializeComponent();
         }
 
-        private void UpgradeOnly_Click(object sender, RoutedEventArgs e)
-        {
-            Task.Run(() => StaticData.Spicetify.Upgrade());
-        }
-
-        private void FullUpgrade_Click(object sender, RoutedEventArgs e)
-        {
-            Task.Run(() => StaticData.Spicetify.FullUpgrade());
-        }
-
-        private void RestartBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Task.Run(() => StaticData.Spicetify.Restart());
-        }
-
         private void BackupBtn_Click(object sender, RoutedEventArgs e)
         {
             Task.Run(() => StaticData.Spicetify.Backup());
         }
-
         private void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you want to clear the backup?", "Confirmation", MessageBoxButton.YesNoCancel);
-            if(result == MessageBoxResult.Yes)
+            if (result == MessageBoxResult.Yes)
                 Task.Run(() => StaticData.Spicetify.Clear());
         }
-
+        private void RestartBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Task.Run(() => StaticData.Spicetify.Restart());
+        }
         private void RestoreBtn_Click(object sender, RoutedEventArgs e)
         {
             Task.Run(() => StaticData.Spicetify.Restore());
+        }
+        private void UpgradeOnly_Click(object sender, RoutedEventArgs e)
+        {
+            Task.Run(() => StaticData.Spicetify.Upgrade());
+        }
+        private void FullUpgrade_Click(object sender, RoutedEventArgs e)
+        {
+            Task.Run(() => StaticData.Spicetify.FullUpgrade());
         }
     }
 }
