@@ -16,7 +16,7 @@
 
 ## Features
  - Autodetection of themes, colors, plugins and custom apps.
- - Full support to Spicetify settings, preprocesses and additional options.
+ - Full support to Spicetify config file settings, preprocesses and additional options.
  - Portable, no installation required.
  - Spicetify logs directly in app.
 
