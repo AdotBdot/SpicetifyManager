@@ -180,6 +180,13 @@ namespace SpicetifyManager
 
             ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "-q clear", true);
         }
+        public async Task EnableDevTools()
+        {
+            if (!Detected)
+                return;
+
+            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "enable-devtools", true);
+        }
         public async Task Restart()
         {
             if (!Detected)
