@@ -14,6 +14,7 @@
         <Label Content="Manage" Style="{StaticResource PageTitle}"/>
         <Button x:Name="BackupBtn" Content="Backup" Click="BackupBtn_Click"/>
         <Button x:Name="ClearBtn" Content="Clear Backup" Click="ClearBtn_Click"/>
+        <Button x:Name="DevToolsBtn" Content="Enable DevTools" Click="DevToolsBtn_Click"/>
         <Button x:Name="RestartBtn" Content="Restart Spotify" Click="RestartBtn_Click"/>
         <Button x:Name="RestoreBtn" Content="Restore Spotify" Click="RestoreBtn_Click"/>
         <ui:DropDownButton x:Name="UpgradeBtn" Width="140" Height="40" Content="Upgrade" Style="{StaticResource DropDownButtonStyle}"

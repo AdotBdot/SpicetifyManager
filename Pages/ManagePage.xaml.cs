@@ -25,6 +25,10 @@ namespace SpicetifyManager.Pages
             if (result == MessageBoxResult.Yes)
                 Task.Run(() => StaticData.Spicetify.Clear());
         }
+        private void DevToolsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Task.Run(() => StaticData.Spicetify.EnableDevTools());
+        }
         private void RestartBtn_Click(object sender, RoutedEventArgs e)
         {
             Task.Run(() => StaticData.Spicetify.Restart());
