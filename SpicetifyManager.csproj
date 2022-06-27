@@ -13,14 +13,21 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AssemblyName>Spicetify Manager</AssemblyName>
+    <FileVersion>2.0.0</FileVersion>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/AdotBdot/SpicetifyManager</RepositoryUrl>
+    <PackageLicenseFile>C:\Users\User\source\CSharp\SpicetifyManager\LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Properties\**" />
-    <EmbeddedResource Remove="Properties\**" />
-    <None Remove="Properties\**" />
-    <Page Remove="Properties\**" />
-  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Source\Program.cs" />
@@ -43,6 +50,13 @@
     <PackageReference Include="ini-parser" Version="2.5.2" />
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
     <PackageReference Include="Octokit" Version="0.51.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
