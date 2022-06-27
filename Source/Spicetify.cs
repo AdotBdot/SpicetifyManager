@@ -133,6 +133,8 @@ namespace SpicetifyManager
                 UseShellExecute = true,
                 Verb = "open"
             });
+
+            Logger.Log(_UserDirectory + "CustomApps\\");
         }
         public void OpenExtensionsFolder()
         {
@@ -145,6 +147,8 @@ namespace SpicetifyManager
                 UseShellExecute = true,
                 Verb = "open"
             });
+
+            Logger.Log(_UserDirectory + "Extensions\\");
         }
         public void OpenThemeFolder()
         {
@@ -157,6 +161,8 @@ namespace SpicetifyManager
                 UseShellExecute = true,
                 Verb = "open"
             });
+
+            Logger.Log(_UserDirectory + "Themes\\");
         }
 
         public async Task Apply()
@@ -164,56 +170,56 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "apply", true);
+            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "apply");
         }
         public async Task Backup()
         {
             if(!Detected)
                 return;
 
-            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "backup", true);
+            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "backup");
         }
         public async Task Clear()
         {
             if(!Detected)
                 return;
 
-            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "-q clear", true);
+            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "-q clear");
         }
         public async Task EnableDevTools()
         {
             if (!Detected)
                 return;
 
-            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "enable-devtools", true);
+            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "enable-devtools");
         }
         public async Task Restart()
         {
             if (!Detected)
                 return;
 
-            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "restart", true);
+            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "restart");
         }
         public async Task Restore()
         {
             if (!Detected)
                 return;
 
-            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "restore", true);
+            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "restore");
         }
         public async Task Update()
         {
             if(!Detected)
                 return;
 
-            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "update", true);
+            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "update");
         }
         public async Task Upgrade()
         {
             if(!Detected)
                 return;
 
-            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "upgrade", true);
+            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "upgrade");
         }
         public async Task FullUpgrade()
         {

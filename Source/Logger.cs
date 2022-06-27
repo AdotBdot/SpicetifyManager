@@ -9,6 +9,7 @@ namespace SpicetifyManager
         public static void Log(string text, bool indent = false)
         {
             Logged?.Invoke(null, indent == true ? new LogEventArgs("  " + text) : new LogEventArgs(text));
+            Console.WriteLine(indent == true ? "  " + text : text);
         }
     }
 
