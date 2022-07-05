@@ -18,6 +18,7 @@
  - Full support to Spicetify config file settings, preprocesses and additional options.
  - Portable, no installation required.
  - Spicetify logs directly in app.
+ - Version checker.
 
 ## Requirements
  - Latest version of spicetify-cli.
