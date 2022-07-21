@@ -6,7 +6,7 @@ namespace SpicetifyManager.Source
     {
         static StaticData()
         {
-            UserDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\.spicetify\");
+            UserDirectory = Environment.ExpandEnvironmentVariables(@"%APPDATA%\spicetify\");
             CliDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\spicetify-cli\");
 
             Spicetify = new Spicetify(UserDirectory, CliDirectory);
