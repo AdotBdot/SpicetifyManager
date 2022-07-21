@@ -29,6 +29,6 @@ namespace SpicetifyManager.Source
         public static readonly Spicetify Spicetify;
         public static readonly Settings Settings;
 
-        public const string Version = "2.0.0";
+        public const string Version = "2.0.1";
     }
 }
