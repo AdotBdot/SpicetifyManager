@@ -17,7 +17,25 @@ namespace SpicetifyManager.Pages
         public MainWindow()
         {
             InitializeComponent();
-            Navigate(StaticData.Spicetify.Detected ? "Nav_StartPage" : "Nav_SpicetifyNotDetectedPage");
+            if(StaticData.Spicetify.Detected)
+            {
+                Navigate("Nav_StartPage");
+            }
+            else
+            {
+                ApplyBtn.IsEnabled = false;
+                SaveBtn.IsEnabled = false;
+                UpdateBtn.IsEnabled = false;
+                OpenBtn.IsEnabled = false;
+                ReloadBtn.IsEnabled = false;
+                ThemesBtn.IsEnabled = false;
+                PluginsBtn.IsEnabled = false;
+                ManageBtn.IsEnabled = false;
+                SettingsBtn.IsEnabled = false;
+                AboutBtn.IsEnabled = false;
+                LogsBtn.IsEnabled = false;
+                Navigate("Nav_SpicetifyNotDetectedPage");
+            }
         }
 
         //Navigation
@@ -41,17 +59,17 @@ namespace SpicetifyManager.Pages
 
         private void ContentFrame_Navigated(object sender, NavigationEventArgs e)
         {
-            if(ContentFrame.Content != null)
-            {
-                KeyValuePair<string, Page> item = Pages.FirstOrDefault(p => p.Value == e.Content);
+            if(ContentFrame.Content == null)
+                return;
 
-                foreach(Button b in NavBar.Children.OfType<Button>())
-                {
-                    if(b.Tag.Equals(item.Key + "Btn"))
-                        b.Style = (Style)FindResource("NavBtnSelected");
-                    else
-                        b.Style = (Style)FindResource("NavBtn");
-                }
+            KeyValuePair<string, Page> item = Pages.FirstOrDefault(p => p.Value == e.Content);
+
+            foreach(Button b in NavBar.Children.OfType<Button>())
+            {
+                if(b.Tag.Equals(item.Key + "Btn"))
+                    b.Style = (Style)FindResource("NavBtnSelected");
+                else
+                    b.Style = (Style)FindResource("NavBtn");
             }
         }
 
