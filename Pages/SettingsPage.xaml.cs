@@ -11,7 +11,8 @@ namespace SpicetifyManager.Pages
         public SettingsPage()
         {
             InitializeComponent();
-            InitControls();
+            if(StaticData.Spicetify.Detected)
+                InitControls();
         }
 
         public void InitControls()

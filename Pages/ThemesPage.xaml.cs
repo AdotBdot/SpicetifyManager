@@ -12,8 +12,11 @@ namespace SpicetifyManager.Pages
         {
             InitializeComponent();
 
-            InitThemesListBox();
-            InitColorSchemesBox();
+            if(StaticData.Spicetify.Detected)
+            {
+                InitThemesListBox();
+                InitColorSchemesBox();
+            }
         }
 
         public void InitThemesListBox()
