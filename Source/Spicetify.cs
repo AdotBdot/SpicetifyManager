@@ -221,6 +221,14 @@ namespace SpicetifyManager
 
             ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "upgrade");
         }
+
+        public async Task RestoreBackupApply()
+        {
+            if (!Detected)
+                return;
+
+            ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "restore backup apply");
+        }
         public async Task FullUpgrade()
         {
             if(!Detected)
@@ -228,9 +236,7 @@ namespace SpicetifyManager
 
             Logger.Log("Running Upgrade Sequence...");
             await Upgrade();
-            await Restore();
-            await Backup();
-            await Apply();
+            await RestoreBackupApply();
             Logger.Log("Fully Upgraded!");
         }
 
