@@ -10,8 +10,6 @@
         <Style TargetType="ui:ListView">
             <Setter Property="Width" Value="200"/>
             <Setter Property="Margin" Value="0,7,0,0"/>
-            <Setter Property="Background" Value="{StaticResource BgDarkSolid}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource BgBrightSolid}"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="MaxHeight" Value="320"/>
@@ -24,11 +22,15 @@
         <ui:SimpleStackPanel Orientation="Horizontal" Spacing="23">
             <ui:SimpleStackPanel Orientation="Vertical">
                 <Label Content="Theme"/>
-                <ui:ListView x:Name="ThemesListBox" SelectionChanged="ThemesListBox_OnSelectionChanged"/>
+                <Border CornerRadius="5" BorderThickness="1" Background="{StaticResource BgDarkSolid}" BorderBrush="{StaticResource BgBrightSolid}">
+                    <ui:ListView x:Name="ThemesListBox" SelectionChanged="ThemesListBox_OnSelectionChanged"/>
+                </Border>
             </ui:SimpleStackPanel>
             <ui:SimpleStackPanel Orientation="Vertical">
                 <Label Content="Color Scheme"/>
-                <ui:ListView x:Name="ColorSchemesListBox"/>
+                <Border CornerRadius="5" BorderThickness="1" Background="{StaticResource BgDarkSolid}" BorderBrush="{StaticResource BgBrightSolid}">
+                    <ui:ListView x:Name="ColorSchemesListBox"/>
+                </Border>
             </ui:SimpleStackPanel>
         </ui:SimpleStackPanel>
     </ui:SimpleStackPanel>

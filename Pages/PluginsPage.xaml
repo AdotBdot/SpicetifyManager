@@ -1,8 +1,7 @@
 ﻿<ui:Page x:Class="SpicetifyManager.Pages.PluginsPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:ui="http://schemas.modernwpf.com/2019"
-         mc:Ignorable="d" d:DesignHeight="438" d:DesignWidth="700" Title="PluginsPage" VerticalAlignment="Stretch">
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:ui="http://schemas.modernwpf.com/2019" mc:Ignorable="d" d:DesignHeight="438"
+         d:DesignWidth="700" Title="PluginsPage" VerticalAlignment="Stretch">
     <Page.Resources>
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="19"/>
@@ -11,8 +10,6 @@
         <Style TargetType="ui:ListView">
             <Setter Property="Width" Value="200"/>
             <Setter Property="Margin" Value="0,7,0,0"/>
-            <Setter Property="Background" Value="{StaticResource BgDarkSolid}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource BgBrightSolid}"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="MaxHeight" Value="320"/>
@@ -28,11 +25,15 @@
         <ui:SimpleStackPanel Orientation="Horizontal" Height="Auto" Spacing="23" VerticalAlignment="Stretch">
             <ui:SimpleStackPanel>
                 <Label Content="Extensions"/>
-                <ui:ListView x:Name="PluginsList"/>
+                <Border CornerRadius="5" BorderThickness="1" Background="{StaticResource BgDarkSolid}" BorderBrush="{StaticResource BgBrightSolid}">
+                    <ui:ListView x:Name="PluginsList"/>
+                </Border>
             </ui:SimpleStackPanel>
             <ui:SimpleStackPanel>
                 <Label Content="Custom Apps"/>
-                <ui:ListView x:Name="CustomAppsList"/>
+                <Border CornerRadius="5" BorderThickness="1" Background="{StaticResource BgDarkSolid}" BorderBrush="{StaticResource BgBrightSolid}">
+                    <ui:ListView x:Name="CustomAppsList"/>
+                </Border>
             </ui:SimpleStackPanel>
         </ui:SimpleStackPanel>
     </ui:SimpleStackPanel>
