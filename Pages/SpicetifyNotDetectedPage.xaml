@@ -4,9 +4,9 @@
          d:DesignWidth="700">
     <ui:SimpleStackPanel>
         <Label Content="Spicetify Not Detected" Style="{StaticResource PageTitle}"/>
-        <TextBlock FontSize="14" Foreground="White">
-            Install Spicetify from here:
-            <Hyperlink NavigateUri="https://spicetify.app/docs/getting-started">spicetify.app/docs/getting-started</Hyperlink>
+        <TextBlock FontSize="14" Foreground="White" Margin="3,0,0,0">
+            Install Spicetify from 
+            <Hyperlink NavigateUri="https://spicetify.app/docs/getting-started" RequestNavigate="Hyperlink_RequestNavigate">spicetify.app/docs/getting-started</Hyperlink>
             and restart application.
         </TextBlock>
     </ui:SimpleStackPanel>
