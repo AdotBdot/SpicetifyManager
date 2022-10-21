@@ -31,6 +31,7 @@ namespace SpicetifyManager.Pages
 
         private async void CheckManagerVersion()
         {
+            Logger.Log("Checking manager version...");
             var latestTag = await VersionChecker.GetLastTag("AdotBdot", "SpicetifyManager");
             var text = (latestTag == StaticData.Version) ? "You are up to date." : "Version " + latestTag + " available.";
             AppVersionStateLabel.Content = text;
@@ -38,6 +39,7 @@ namespace SpicetifyManager.Pages
 
         private async void CheckSpicetifyVersion()
         {
+            Logger.Log("Checking spicetify version...");
             var latestTag = await VersionChecker.GetLastTag("spicetify", "spicetify-cli");
             var text = (latestTag == "v" + StaticData.Spicetify.Version) ? "You are up to date." : "Version " + latestTag + " available.";
             SpicetifyVersionStateLabel.Content = text;

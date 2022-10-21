@@ -6,10 +6,7 @@ namespace SpicetifyManager.Source
     {
         static StaticData()
         {
-            UserDirectory = Environment.ExpandEnvironmentVariables(@"%APPDATA%\spicetify\");
-            CliDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\spicetify-cli\");
-
-            Spicetify = new Spicetify(UserDirectory, CliDirectory);
+            Spicetify = new Spicetify();
             if(Spicetify.Detected)
             {
                 Settings = new Settings(Spicetify);
@@ -22,9 +19,6 @@ namespace SpicetifyManager.Source
             Spicetify.ListAll();
             Settings.LoadConfig();
         }
-
-        public static readonly string UserDirectory;
-        public static readonly string CliDirectory;
 
         public static readonly Spicetify Spicetify;
         public static readonly Settings Settings;
