@@ -2,133 +2,129 @@
 
 namespace SpicetifyManager
 {
-    public class Settings
+    public struct Settings
     {
-        public Settings(Spicetify spicetify)
+        public Settings()
         {
-            _Spicetify = spicetify;
-            _Reader = new ConfigFileReader();
-            _Writer = new ConfigFileWriter();
         }
 
-        public void LoadConfig()
+        public void Load()
         {
-            if(!_Spicetify.Detected)
+            if(!Spicetify.Instance.Detected)
                 return;
 
-            _Reader.LoadFile(_Spicetify.ConfigFile);
+            IniFile configFile = new();
+            configFile.LoadFile(Spicetify.Instance.ConfigFilePath);
 
-            ReadSetting();
-            ReadPreprocesses();
-            ReadAdditionalOptions();
-            ReadBackup();
+            SpotifyPath = configFile.ReadString("Setting", "spotify_path");
+            PrefsPath = configFile.ReadString("Setting", "prefs_path");
+            CurrentTheme = configFile.ReadString("Setting", "current_theme");
+            ColorScheme = configFile.ReadString("Setting", "color_scheme");
+            InjectCss = configFile.ReadBool("Setting", "inject_css");
+            OverwriteAssets = configFile.ReadBool("Setting", "overwrite_assets");
+            CheckSpicetifyUpgrade = configFile.ReadBool("Setting", "check_spicetify_upgrade");
+            ReplaceColors = configFile.ReadBool("Setting", "replace_colors");
+            SpotifyLaunchFlags = configFile.ReadString("Setting", "spotify_launch_flags");
+
+            DisableUiLogging = configFile.ReadBool("Preprocesses", "disable_ui_logging");
+            RemoveRtlRule = configFile.ReadBool("Preprocesses", "remove_rtl_rule");
+            ExposeApis = configFile.ReadBool("Preprocesses", "expose_apis");
+            DisableUpgradeCheck = configFile.ReadBool("Preprocesses", "disable_upgrade_check");
+            DisableSentry = configFile.ReadBool("Preprocesses", "disable_sentry");
+
+            Extensions = configFile.ReadList("AdditionalOptions", "extensions");
+            CustomApps = configFile.ReadList("AdditionalOptions", "custom_apps");
+            SidebarConfig = configFile.ReadBool("AdditionalOptions", "sidebar_config");
+            HomeConfig = configFile.ReadBool("AdditionalOptions", "home_config");
+            ExperimentalFeatures = configFile.ReadBool("AdditionalOptions", "experimental_features");
+
+            BackupVersion = configFile.ReadString("Backup", "version");
+            WithVersion = configFile.ReadString("Backup", "with");
         }
-        public void SavePlugins()
+
+        public void Save()
         {
-            _Writer.LoadFile(_Spicetify.ConfigFile);
+            if(!Spicetify.Instance.Detected)
+                return;
 
-            _Writer.WriteList("AdditionalOptions", "extensions", ExtensionsList);
-            _Writer.WriteList("AdditionalOptions", "custom_apps", CustomAppsList);
+            IniFile configFile = new();
+            configFile.LoadFile(Spicetify.Instance.ConfigFilePath);
 
-            _Writer.WriteFile(_Spicetify.ConfigFile);
+            configFile.WriteString("Setting", "spotify_path", SpotifyPath);
+            configFile.WriteString("Setting", "prefs_path", PrefsPath);
+            configFile.WriteString("Setting", "spotify_launch_flags", SpotifyLaunchFlags);
+            configFile.WriteString("Setting", "current_theme", CurrentTheme);
+            configFile.WriteString("Setting", "color_scheme", ColorScheme);
+            configFile.WriteBool("Setting", "inject_css", InjectCss);
+            configFile.WriteBool("Setting", "overwrite_assets", OverwriteAssets);
+            configFile.WriteBool("Setting", "check_spicetify_upgrade", CheckSpicetifyUpgrade);
+            configFile.WriteBool("Setting", "replace_colors", ReplaceColors);
+
+            configFile.WriteBool("Preprocesses", "disable_ui_logging", DisableUiLogging);
+            configFile.WriteBool("Preprocesses", "remove_rtl_rule", RemoveRtlRule);
+            configFile.WriteBool("Preprocesses", "expose_apis", ExposeApis);
+            configFile.WriteBool("Preprocesses", "disable_upgrade_check", DisableUpgradeCheck);
+            configFile.WriteBool("Preprocesses", "disable_sentry", DisableSentry);
+
+            configFile.WriteList("AdditionalOptions", "extensions", Extensions);
+            configFile.WriteList("AdditionalOptions", "custom_apps", CustomApps);
+            configFile.WriteBool("AdditionalOptions", "sidebar_config", SidebarConfig);
+            configFile.WriteBool("AdditionalOptions", "home_config", HomeConfig);
+            configFile.WriteBool("AdditionalOptions", "experimental_features", ExperimentalFeatures);
+
+            configFile.WriteFile(Spicetify.Instance.ConfigFilePath);
         }
-        public void SaveSettings()
+
+        public void RestoreDefault()
         {
-            _Writer.LoadFile(_Spicetify.ConfigFile);
+            SpotifyLaunchFlags = string.Empty;
+            CurrentTheme = string.Empty;
+            ColorScheme = string.Empty;
+            OverwriteAssets = false;
+            InjectCss = true;
+            ReplaceColors = true;
+            CheckSpicetifyUpgrade = false;
 
-            _Writer.WriteString("Setting", "prefs_path", PrefsPath);
-            _Writer.WriteBool("Setting", "overwrite_assets", OverwriteAssets);
-            _Writer.WriteBool("Setting", "check_spicetify_upgrade", CheckSpicetifyUpgrade);
-            _Writer.WriteString("Setting", "spotify_path", SpotifyPath);
-            _Writer.WriteBool("Setting", "inject_css", InjectCss);
-            _Writer.WriteBool("Setting", "replace_colors", ReplaceColors);
-            _Writer.WriteString("Setting", "spotify_launch_flags", SpotifyLaunchFlags);
+            ExposeApis = true;
+            DisableSentry = true;
+            DisableUiLogging = true;
+            DisableUpgradeCheck = true;
+            RemoveRtlRule = true;
 
-            _Writer.WriteBool("Preprocesses", "disable_sentry", DisableSentry);
-            _Writer.WriteBool("Preprocesses", "disable_ui_logging", DisableUiLogging);
-            _Writer.WriteBool("Preprocesses", "remove_rtl_rule", RemoveRtlRule);
-            _Writer.WriteBool("Preprocesses", "expose_apis", ExposeApis);
-            _Writer.WriteBool("Preprocesses", "disable_upgrade_check", DisableUpgradeCheck);
-
-            _Writer.WriteBool("AdditionalOptions", "home_config", HomeConfig);
-            _Writer.WriteBool("AdditionalOptions", "sidebar_config", SidebarConfig);
-            _Writer.WriteBool("AdditionalOptions", "experimental_features", ExperimentalFeatures);
-
-            _Writer.WriteFile(_Spicetify.ConfigFile);
+            Extensions = new List<string>();
+            CustomApps = new List<string>();
+            HomeConfig = true;
+            SidebarConfig = true;
+            ExperimentalFeatures = true;
         }
-        public void SaveThemes()
-        {
-            _Writer.LoadFile(_Spicetify.ConfigFile);
-
-            _Writer.WriteString("Setting", "current_theme", CurrentTheme);
-            _Writer.WriteString("Setting", "color_scheme", ColorScheme);
-
-            _Writer.WriteFile(_Spicetify.ConfigFile);
-        }
-
-        private void ReadSetting()
-        {
-            PrefsPath = _Reader.ReadString("Setting", "prefs_path");
-            OverwriteAssets = _Reader.ReadBool("Setting", "overwrite_assets");
-            CheckSpicetifyUpgrade = _Reader.ReadBool("Setting", "check_spicetify_upgrade");
-            SpotifyPath = _Reader.ReadString("Setting", "spotify_path");
-            CurrentTheme = _Reader.ReadString("Setting", "current_theme");
-            ColorScheme = _Reader.ReadString("Setting", "color_scheme");
-            InjectCss = _Reader.ReadBool("Setting", "inject_css");
-            ReplaceColors = _Reader.ReadBool("Setting", "replace_colors");
-            SpotifyLaunchFlags = _Reader.ReadString("Setting", "spotify_launch_flags");
-        }
-        private void ReadPreprocesses()
-        {
-            DisableSentry = _Reader.ReadBool("Preprocesses", "disable_sentry");
-            DisableUiLogging = _Reader.ReadBool("Preprocesses", "disable_ui_logging");
-            RemoveRtlRule = _Reader.ReadBool("Preprocesses", "remove_rtl_rule");
-            ExposeApis = _Reader.ReadBool("Preprocesses", "expose_apis");
-            DisableUpgradeCheck = _Reader.ReadBool("Preprocesses", "disable_upgrade_check");
-        }
-        private void ReadAdditionalOptions()
-        {
-            HomeConfig = _Reader.ReadBool("AdditionalOptions", "home_config");
-            ExtensionsList = _Reader.ReadList("AdditionalOptions", "extensions");
-            CustomAppsList = _Reader.ReadList("AdditionalOptions", "custom_apps");
-            SidebarConfig = _Reader.ReadBool("AdditionalOptions", "sidebar_config");
-            ExperimentalFeatures = _Reader.ReadBool("AdditionalOptions", "experimental_features");
-        }
-        private void ReadBackup()
-        {
-            BackupVersion = _Reader.ReadString("Backup", "version");
-        }
-
-        private Spicetify _Spicetify;
-        private ConfigFileReader _Reader;
-        private ConfigFileWriter _Writer;
 
         //Settings
-        public string PrefsPath;
-        public bool OverwriteAssets{get; set;}
-        public bool CheckSpicetifyUpgrade{get; set;}
-        public string SpotifyPath;
-        public string CurrentTheme;
-        public string ColorScheme;
-        public bool InjectCss{get; set;}
-        public bool ReplaceColors{get; set;}
-        public string SpotifyLaunchFlags;
+        public string SpotifyPath{get; set;} = string.Empty;
+        public string PrefsPath{get; set;} = string.Empty;
+        public string SpotifyLaunchFlags{get; set;} = string.Empty;
+        public string CurrentTheme{get; set;} = string.Empty;
+        public string ColorScheme{get; set;} = string.Empty;
+        public bool OverwriteAssets{get; set;} = false;
+        public bool InjectCss{get; set;} = true;
+        public bool ReplaceColors{get; set;} = true;
+        public bool CheckSpicetifyUpgrade{get; set;} = false;
 
         //Preprocesses
-        public bool DisableSentry{get; set;}
-        public bool DisableUiLogging{get; set;}
-        public bool RemoveRtlRule{get; set;}
-        public bool ExposeApis{get; set;}
-        public bool DisableUpgradeCheck{get; set;}
+        public bool ExposeApis { get; set; } = true;
+        public bool DisableSentry{get; set;} = true;
+        public bool DisableUiLogging{get; set;} = true;
+        public bool DisableUpgradeCheck{get; set;} = true;
+        public bool RemoveRtlRule { get; set; } = true;
 
         //AdditionalOptions
-        public bool HomeConfig{get; set;}
-        public List<string> ExtensionsList;
-        public List<string> CustomAppsList;
-        public bool SidebarConfig{get; set;}
-        public bool ExperimentalFeatures{get; set;}
+        public List<string> Extensions{get; set;} = new List<string>();
+        public List<string> CustomApps{get; set;} = new List<string>();
+        public bool HomeConfig{get; set;} = true;
+        public bool SidebarConfig{get; set;} = true;
+        public bool ExperimentalFeatures{get; set;} = true;
 
         //Backup
-        public string BackupVersion;
+        public string BackupVersion{get; private set;} = string.Empty;
+        public string WithVersion{get; private set;} = string.Empty;
     }
 }

@@ -7,7 +7,7 @@ namespace SpicetifyManager.Source
 {
     internal static class VersionChecker
     {
-        public static async Task<string> GetLastTag(string owner, string repoName)
+        public static async Task<string> GetLatestTag(string owner, string repoName)
         {
             try
             {

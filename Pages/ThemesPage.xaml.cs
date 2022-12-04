@@ -1,5 +1,4 @@
 ﻿using System.Windows.Controls;
-using SpicetifyManager.Source;
 
 namespace SpicetifyManager.Pages
 {
@@ -12,49 +11,43 @@ namespace SpicetifyManager.Pages
         {
             InitializeComponent();
 
-            if(StaticData.Spicetify.Detected)
-            {
-                InitThemesListBox();
-                InitColorSchemesBox();
-            }
+            if(Spicetify.Instance.Detected)
+                InitControls();
         }
 
-        public void InitThemesListBox()
+        public void InitControls()
         {
-            ThemesListBox.ItemsSource = StaticData.Spicetify.GetThemes();
+            ThemesListBox.ItemsSource = Spicetify.Instance.ThemesList;
 
-            if(StaticData.Settings.CurrentTheme == string.Empty)
+            if(Spicetify.Instance.Settings.CurrentTheme == string.Empty)
                 ThemesListBox.SelectedIndex = ThemesListBox.Items.IndexOf("(none)");
             else
-                ThemesListBox.SelectedIndex = ThemesListBox.Items.IndexOf(StaticData.Settings.CurrentTheme);
-        }
+                ThemesListBox.SelectedIndex = ThemesListBox.Items.IndexOf(Spicetify.Instance.Settings.CurrentTheme);
 
-        public void InitColorSchemesBox()
-        {
-            ColorSchemesListBox.ItemsSource = StaticData.Spicetify.GetColors(StaticData.Settings.CurrentTheme);
+            ColorSchemesListBox.ItemsSource = Spicetify.Instance.GetThemeColors(Spicetify.Instance.Settings.CurrentTheme);
 
-            if(StaticData.Settings.ColorScheme == string.Empty)
+            if(Spicetify.Instance.Settings.ColorScheme == string.Empty)
                 ColorSchemesListBox.SelectedItem = null;
             else
-                ColorSchemesListBox.SelectedIndex = ColorSchemesListBox.Items.IndexOf(StaticData.Settings.ColorScheme);
+                ColorSchemesListBox.SelectedIndex = ColorSchemesListBox.Items.IndexOf(Spicetify.Instance.Settings.ColorScheme);
         }
 
-        private void ThemesListBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ThemesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ColorSchemesListBox.ItemsSource = StaticData.Spicetify.GetColors(ThemesListBox.SelectedItem.ToString());
+            ColorSchemesListBox.ItemsSource = Spicetify.Instance.GetThemeColors(ThemesListBox.SelectedItem.ToString());
         }
 
         public void ReadInput()
         {
             if(ThemesListBox.SelectedItem.ToString() == "(none)")
-                StaticData.Settings.CurrentTheme = "";
+                Spicetify.Instance.Settings.CurrentTheme = "";
             else
-                StaticData.Settings.CurrentTheme = ThemesListBox.SelectedItem.ToString();
+                Spicetify.Instance.Settings.CurrentTheme = ThemesListBox.SelectedItem.ToString();
 
             if(ColorSchemesListBox.SelectedItem == null)
-                StaticData.Settings.ColorScheme = "";
+                Spicetify.Instance.Settings.ColorScheme = "";
             else
-                StaticData.Settings.ColorScheme = ColorSchemesListBox.SelectedItem.ToString();
+                Spicetify.Instance.Settings.ColorScheme = ColorSchemesListBox.SelectedItem.ToString();
         }
     }
 }
