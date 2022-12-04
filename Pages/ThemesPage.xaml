@@ -12,7 +12,7 @@
             <Setter Property="Margin" Value="0,7,0,0"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="MaxHeight" Value="320"/>
+            <Setter Property="Height" Value="320"/>
             <Setter Property="ui:ScrollViewerHelper.AutoHideScrollBars" Value="True"/>
             <Setter Property="SelectionMode" Value="Single"/>
         </Style>
@@ -23,7 +23,7 @@
             <ui:SimpleStackPanel Orientation="Vertical">
                 <Label Content="Theme"/>
                 <Border CornerRadius="5" BorderThickness="1" Background="{StaticResource BgDarkSolid}" BorderBrush="{StaticResource BgBrightSolid}">
-                    <ui:ListView x:Name="ThemesListBox" SelectionChanged="ThemesListBox_OnSelectionChanged"/>
+                    <ui:ListView x:Name="ThemesListBox" SelectionChanged="ThemesListBox_SelectionChanged"/>
                 </Border>
             </ui:SimpleStackPanel>
             <ui:SimpleStackPanel Orientation="Vertical">

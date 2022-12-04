@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using Page = ModernWpf.Controls.Page;
 
 namespace SpicetifyManager.Pages

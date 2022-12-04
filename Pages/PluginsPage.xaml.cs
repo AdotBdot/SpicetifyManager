@@ -1,5 +1,4 @@
 ﻿using ModernWpf.Controls;
-using SpicetifyManager.Source;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -14,30 +13,29 @@ namespace SpicetifyManager.Pages
         {
             InitializeComponent();
 
-            InitPluginsList();
-            InitCustomAppsList();
+            if(Spicetify.Instance.Detected)
+                InitControls();
         }
 
-        public void InitPluginsList()
+        public void InitControls()
         {
-            PluginsList.ItemsSource = StaticData.Spicetify.GetExtensions();
+            //Init PluginsList
+            PluginsList.ItemsSource = Spicetify.Instance.ExtensionsList;
 
             PluginsList.SelectedItems.Clear();
             foreach(var item in PluginsList.Items)
             {
-                if(StaticData.Settings.ExtensionsList.Contains(item.ToString()))
+                if(Spicetify.Instance.Settings.Extensions.Contains(item.ToString()))
                     PluginsList.SelectedItems.Add(item);
             }
-        }
 
-        public void InitCustomAppsList()
-        {
-            CustomAppsList.ItemsSource = StaticData.Spicetify.GetCustomApps();
+            //Init CustomAppsList
+            CustomAppsList.ItemsSource = Spicetify.Instance.CustomAppsList;
 
             CustomAppsList.SelectedItems.Clear();
             foreach(var item in CustomAppsList.Items)
             {
-                if(StaticData.Settings.CustomAppsList.Contains(item.ToString()))
+                if(Spicetify.Instance.Settings.CustomApps.Contains(item.ToString()))
                     CustomAppsList.SelectedItems.Add(item);
             }
         }
@@ -52,7 +50,7 @@ namespace SpicetifyManager.Pages
                 extsList.Add(item.ToString());
             }
 
-            StaticData.Settings.ExtensionsList = extsList;
+            Spicetify.Instance.Settings.Extensions = extsList;
 
             IList selectedApps = CustomAppsList.SelectedItems;
             List<string> appsList = new();
@@ -62,7 +60,7 @@ namespace SpicetifyManager.Pages
                 appsList.Add(item.ToString());
             }
 
-            StaticData.Settings.CustomAppsList = appsList;
+            Spicetify.Instance.Settings.CustomApps = appsList;
         }
     }
 }

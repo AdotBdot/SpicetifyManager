@@ -12,15 +12,14 @@ namespace SpicetifyManager.Pages
         public AboutPage()
         {
             InitializeComponent();
-            if(StaticData.Spicetify.Detected)
+            if(Spicetify.Instance.Detected)
                 InitControls();
         }
 
         public void InitControls()
         {
-            AppVersionLabel.Content = StaticData.Version;
-            SpicetifyVersionLabel.Content = StaticData.Spicetify.Version;
-            BackupVersionLabel.Content = StaticData.Settings.BackupVersion;
+            SpicetifyVersionLabel.Content = Spicetify.Instance.Version;
+            BackupVersionLabel.Content = Spicetify.Instance.Settings.BackupVersion + " with " + Spicetify.Instance.Settings.WithVersion;
         }
 
         private void CheckVersionBtn_OnClick(object sender, RoutedEventArgs e)
@@ -32,16 +31,16 @@ namespace SpicetifyManager.Pages
         private async void CheckManagerVersion()
         {
             Logger.Log("Checking manager version...");
-            var latestTag = await VersionChecker.GetLastTag("AdotBdot", "SpicetifyManager");
-            var text = (latestTag == StaticData.Version) ? "You are up to date." : "Version " + latestTag + " available.";
+            var latestTag = await VersionChecker.GetLatestTag("AdotBdot", "SpicetifyManager");
+            var text = latestTag == (string)FindResource("AppVersion") ? "You are up to date." : "Version " + latestTag + " available.";
             AppVersionStateLabel.Content = text;
         }
 
         private async void CheckSpicetifyVersion()
         {
             Logger.Log("Checking spicetify version...");
-            var latestTag = await VersionChecker.GetLastTag("spicetify", "spicetify-cli");
-            var text = (latestTag == "v" + StaticData.Spicetify.Version) ? "You are up to date." : "Version " + latestTag + " available.";
+            var latestTag = await VersionChecker.GetLatestTag("spicetify", "spicetify-cli");
+            var text = (latestTag == "v" + Spicetify.Instance.Version) ? "You are up to date." : "Version " + latestTag + " available.";
             SpicetifyVersionStateLabel.Content = text;
         }
     }

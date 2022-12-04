@@ -1,5 +1,4 @@
 ﻿using ModernWpf.Controls;
-using SpicetifyManager.Source;
 
 namespace SpicetifyManager.Pages
 {
@@ -11,50 +10,118 @@ namespace SpicetifyManager.Pages
         public SettingsPage()
         {
             InitializeComponent();
-            if(StaticData.Spicetify.Detected)
-                InitControls();
+            InitControls();
         }
 
         public void InitControls()
         {
-            Prefs.Text = StaticData.Settings.PrefsPath;
-            SpotifyPath.Text = StaticData.Settings.SpotifyPath;
-            LaunchFlags.Text = StaticData.Settings.SpotifyLaunchFlags;
+            SpotifyPath.Text = Spicetify.Instance.Settings.SpotifyPath;
+            Prefs.Text = Spicetify.Instance.Settings.PrefsPath;
+            LaunchFlags.Text = Spicetify.Instance.Settings.SpotifyLaunchFlags;
 
-            OverwriteAssets.IsChecked = StaticData.Settings.OverwriteAssets;
-            CheckSpicetifyUpgrade.IsChecked = StaticData.Settings.CheckSpicetifyUpgrade;
-            InjectCss.IsChecked = StaticData.Settings.InjectCss;
-            ReplaceColors.IsChecked = StaticData.Settings.ReplaceColors;
-            HomeConfig.IsChecked = StaticData.Settings.HomeConfig;
-            SidebarConfig.IsChecked = StaticData.Settings.SidebarConfig;
-            ExperimentalFeatures.IsChecked = StaticData.Settings.ExperimentalFeatures;
+            OverwriteAssets.IsChecked = Spicetify.Instance.Settings.OverwriteAssets;
+            InjectCss.IsChecked = Spicetify.Instance.Settings.InjectCss;
+            ReplaceColors.IsChecked = Spicetify.Instance.Settings.ReplaceColors;
+            CheckSpicetifyUpgrade.IsChecked = Spicetify.Instance.Settings.CheckSpicetifyUpgrade;
+            HomeConfig.IsChecked = Spicetify.Instance.Settings.HomeConfig;
+            SidebarConfig.IsChecked = Spicetify.Instance.Settings.SidebarConfig;
+            ExperimentalFeatures.IsChecked = Spicetify.Instance.Settings.ExperimentalFeatures;
 
-            DisableSentry.IsChecked = StaticData.Settings.DisableSentry;
-            DisableUILogging.IsChecked = StaticData.Settings.DisableUiLogging;
-            RemoveRTLRules.IsChecked = StaticData.Settings.RemoveRtlRule;
-            ExposeAPIs.IsChecked = StaticData.Settings.ExposeApis;
-            DisableUpgradeCheck.IsChecked = StaticData.Settings.DisableUpgradeCheck;
+            ExposeAPIs.IsChecked = Spicetify.Instance.Settings.ExposeApis;
+            DisableSentry.IsChecked = Spicetify.Instance.Settings.DisableSentry;
+            DisableUILogging.IsChecked = Spicetify.Instance.Settings.DisableUiLogging;
+            DisableUpgradeCheck.IsChecked = Spicetify.Instance.Settings.DisableUpgradeCheck;
+            RemoveRTLRules.IsChecked = Spicetify.Instance.Settings.RemoveRtlRule;
         }
 
-        public void ReadInput()
+        public string SpotifyPathProperty
         {
-            StaticData.Settings.PrefsPath = Prefs.Text;
-            StaticData.Settings.SpotifyPath = SpotifyPath.Text;
-            StaticData.Settings.SpotifyLaunchFlags = LaunchFlags.Text;
+            get {return Spicetify.Instance.Settings.SpotifyPath;}
+            set {Spicetify.Instance.Settings.SpotifyPath = value;}
+        }
 
-            StaticData.Settings.OverwriteAssets = (bool)OverwriteAssets.IsChecked;
-            StaticData.Settings.CheckSpicetifyUpgrade = (bool)CheckSpicetifyUpgrade.IsChecked;
-            StaticData.Settings.InjectCss = (bool)InjectCss.IsChecked;
-            StaticData.Settings.ReplaceColors = (bool)ReplaceColors.IsChecked;
-            StaticData.Settings.HomeConfig = (bool)HomeConfig.IsChecked;
-            StaticData.Settings.SidebarConfig = (bool)SidebarConfig.IsChecked;
-            StaticData.Settings.ExperimentalFeatures = (bool)ExperimentalFeatures.IsChecked;
+        public string PrefsPathProperty
+        {
+            get {return Spicetify.Instance.Settings.PrefsPath;}
+            set {Spicetify.Instance.Settings.PrefsPath = value;}
+        }
 
-            StaticData.Settings.DisableSentry = (bool)DisableSentry.IsChecked;
-            StaticData.Settings.DisableUiLogging = (bool)DisableUILogging.IsChecked;
-            StaticData.Settings.RemoveRtlRule = (bool)RemoveRTLRules.IsChecked;
-            StaticData.Settings.ExposeApis = (bool)ExposeAPIs.IsChecked;
-            StaticData.Settings.DisableUpgradeCheck = (bool)DisableUpgradeCheck.IsChecked;
+        public string SpotifyLaunchFlagsProperty
+        {
+            get {return Spicetify.Instance.Settings.SpotifyLaunchFlags;}
+            set {Spicetify.Instance.Settings.SpotifyLaunchFlags = value;}
+        }
+
+        public bool OverwriteAssetsProperty
+        {
+            get {return Spicetify.Instance.Settings.OverwriteAssets;}
+            set {Spicetify.Instance.Settings.OverwriteAssets = value;}
+        }
+
+        public bool InjectCssProperty
+        {
+            get {return Spicetify.Instance.Settings.InjectCss;}
+            set {Spicetify.Instance.Settings.InjectCss = value;}
+        }
+
+        public bool ReplaceColorsProperty
+        {
+            get {return Spicetify.Instance.Settings.ReplaceColors;}
+            set {Spicetify.Instance.Settings.ReplaceColors = value;}
+        }
+
+        public bool CheckSpicetifyUpgradeProperty
+        {
+            get {return Spicetify.Instance.Settings.CheckSpicetifyUpgrade;}
+            set {Spicetify.Instance.Settings.CheckSpicetifyUpgrade = value;}
+        }
+
+        public bool HomeConfigProperty
+        {
+            get {return Spicetify.Instance.Settings.HomeConfig;}
+            set {Spicetify.Instance.Settings.HomeConfig = value;}
+        }
+
+        public bool SidebarConfigProperty
+        {
+            get {return Spicetify.Instance.Settings.SidebarConfig;}
+            set {Spicetify.Instance.Settings.SidebarConfig = value;}
+        }
+
+        public bool ExperimentalFeaturesProperty
+        {
+            get {return Spicetify.Instance.Settings.ExperimentalFeatures;}
+            set {Spicetify.Instance.Settings.ExperimentalFeatures = value;}
+        }
+
+        public bool ExposeApisProperty
+        {
+            get {return Spicetify.Instance.Settings.ExposeApis;}
+            set {Spicetify.Instance.Settings.ExposeApis = value;}
+        }
+
+        public bool DisableSentryProperty
+        {
+            get {return Spicetify.Instance.Settings.DisableSentry;}
+            set {Spicetify.Instance.Settings.DisableSentry = value;}
+        }
+
+        public bool DisableUiLoggingProperty
+        {
+            get {return Spicetify.Instance.Settings.DisableUiLogging;}
+            set {Spicetify.Instance.Settings.DisableUiLogging = value;}
+        }
+
+        public bool DisableUpgradeCheckProperty
+        {
+            get {return Spicetify.Instance.Settings.DisableUpgradeCheck;}
+            set {Spicetify.Instance.Settings.DisableUpgradeCheck = value;}
+        }
+
+        public bool RemoveRtlRuleProperty
+        {
+            get {return Spicetify.Instance.Settings.RemoveRtlRule;}
+            set {Spicetify.Instance.Settings.RemoveRtlRule = value;}
         }
     }
 }

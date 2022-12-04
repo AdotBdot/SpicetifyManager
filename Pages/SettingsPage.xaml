@@ -1,4 +1,4 @@
-﻿<ui:Page x:Class="SpicetifyManager.Pages.SettingsPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<ui:Page x:Class="SpicetifyManager.Pages.SettingsPage" x:Name="_SettingsPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
          xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:ui="http://schemas.modernwpf.com/2019" mc:Ignorable="d" d:DesignHeight="438"
          d:DesignWidth="700" Title="SettingsPage">
@@ -36,12 +36,12 @@
                     <ColumnDefinition MaxWidth="600"/>
                 </Grid.ColumnDefinitions>
                 <!--Grid Content-->
-                <Label Grid.Column="0" Grid.Row="0" Content="Prefs Path: "/>
-                <Label Grid.Column="0" Grid.Row="1" Content="Spotify Path: "/>
+                <Label Grid.Column="0" Grid.Row="0" Content="Spotify Path: "/>
+                <Label Grid.Column="0" Grid.Row="1" Content="Prefs Path: "/>
                 <Label Grid.Column="0" Grid.Row="2" Content="Spotify Launch Flags: "/>
-                <TextBox Grid.Column="1" Grid.Row="0" x:Name="Prefs" Background="{StaticResource BgDarkSolid}"/>
-                <TextBox Grid.Column="1" Grid.Row="1" x:Name="SpotifyPath" Background="{StaticResource BgDarkSolid}"/>
-                <TextBox Grid.Column="1" Grid.Row="2" x:Name="LaunchFlags" Background="{StaticResource BgDarkSolid}"/>
+                <TextBox Grid.Column="1" Grid.Row="0" x:Name="SpotifyPath" Background="{StaticResource BgDarkSolid}" Text="{Binding ElementName=_SettingsPage, Path=SpotifyPathProperty, Mode=TwoWay}"/>
+                <TextBox Grid.Column="1" Grid.Row="1" x:Name="Prefs" Background="{StaticResource BgDarkSolid}" Text="{Binding ElementName=_SettingsPage, Path=PrefsPathProperty, Mode=TwoWay}"/>
+                <TextBox Grid.Column="1" Grid.Row="2" x:Name="LaunchFlags" Background="{StaticResource BgDarkSolid}" Text="{Binding ElementName=_SettingsPage, Path=SpotifyLaunchFlagsProperty, Mode=TwoWay}"/>
             </Grid>
             <Grid Grid.Row="1" Margin="0,25,0,0">
                 <Grid.RowDefinitions>
@@ -58,18 +58,18 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <!--Grid Content-->
-                <CheckBox Grid.Column="0" Grid.Row="0" x:Name="OverwriteAssets" Content="Overwrite Assets" Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox Grid.Column="0" Grid.Row="1" x:Name="CheckSpicetifyUpgrade" Content="Check Spicetify Upgrade" Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox Grid.Column="0" Grid.Row="2" x:Name="InjectCss" Content="Inject CSS" Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox Grid.Column="0" Grid.Row="3" x:Name="ReplaceColors" Content="Replace Colors" Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox Grid.Column="0" Grid.Row="4" x:Name="HomeConfig" Content="Home Config" Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox Grid.Column="0" Grid.Row="5" x:Name="SidebarConfig" Content="Sidebar Config" Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox Grid.Column="0" Grid.Row="6" x:Name="ExperimentalFeatures" Content="Experimental Features" Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox Grid.Column="1" Grid.Row="0" x:Name="DisableSentry" Content="Disable Sentry" Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox Grid.Column="1" Grid.Row="1" x:Name="DisableUILogging" Content="Disable UI Logging" Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox Grid.Column="1" Grid.Row="2" x:Name="RemoveRTLRules" Content="Remove RTL Rules" Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox Grid.Column="1" Grid.Row="3" x:Name="ExposeAPIs" Content="Expose API's" Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox Grid.Column="1" Grid.Row="4" x:Name="DisableUpgradeCheck" Content="Disable Upgrade Check" Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox Grid.Column="0" Grid.Row="0" x:Name="OverwriteAssets" Content="Overwrite Assets" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=OverwriteAssetsProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="0" Grid.Row="1" x:Name="InjectCss" Content="Inject CSS" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=InjectCssProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="0" Grid.Row="2" x:Name="ReplaceColors" Content="Replace Colors" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=ReplaceColorsProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="0" Grid.Row="3" x:Name="CheckSpicetifyUpgrade" Content="Check Spicetify Upgrade" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=CheckSpicetifyUpgradeProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="0" Grid.Row="4" x:Name="HomeConfig" Content="Home Config" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=HomeConfigProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="0" Grid.Row="5" x:Name="SidebarConfig" Content="Sidebar Config" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=SidebarConfigProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="0" Grid.Row="6" x:Name="ExperimentalFeatures" Content="Experimental Features" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=ExperimentalFeaturesProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="1" Grid.Row="0" x:Name="ExposeAPIs" Content="Expose API's" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=ExposeApisProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="1" Grid.Row="1" x:Name="DisableSentry" Content="Disable Sentry" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=DisableSentryProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="1" Grid.Row="2" x:Name="DisableUILogging" Content="Disable UI Logging" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=DisableUiLoggingProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="1" Grid.Row="3" x:Name="DisableUpgradeCheck" Content="Disable Upgrade Check" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=DisableUpgradeCheckProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="1" Grid.Row="4" x:Name="RemoveRTLRules" Content="Remove RTL Rules" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=RemoveRtlRuleProperty, Mode=TwoWay}"/>
             </Grid>
         </Grid>
     </ui:SimpleStackPanel>

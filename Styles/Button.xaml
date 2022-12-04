@@ -4,9 +4,9 @@
 
     <Style x:Key="ButtonStyle" TargetType="Button">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
-        <Setter Property="Background" Value="{DynamicResource ButtonBackground}"/>
+        <Setter Property="Background" Value="{StaticResource BgBrush}"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThemeThickness}"/>
         <Setter Property="Padding" Value="{StaticResource ButtonPadding}"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
@@ -15,11 +15,11 @@
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}"/>
         <Setter Property="FontWeight" Value="Normal"/>
-        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}"/>
+        <Setter Property="FontSize" Value="14"/>
         <Setter Property="FocusVisualStyle" Value="{DynamicResource {x:Static SystemParameters.FocusVisualStyleKey}}"/>
         <Setter Property="ui:FocusVisualHelper.UseSystemFocusVisuals" Value="{DynamicResource UseSystemFocusVisuals}"/>
         <Setter Property="ui:FocusVisualHelper.FocusVisualMargin" Value="-3"/>
-        <Setter Property="ui:ControlHelper.CornerRadius" Value="{DynamicResource ControlCornerRadius}"/>
+        <Setter Property="ui:ControlHelper.CornerRadius" Value="5"/>
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -36,17 +36,14 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Background" Property="Background" Value="{StaticResource SecondarySolid}"/>
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPointerOver}"/>
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundPointerOver}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="Background" Property="Background" Value="{StaticResource BgBrushInv}"/>
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPressed}"/>
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundPressed}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Background" Property="Background" Value="{DynamicResource ButtonBackgroundDisabled}"/>
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushDisabled}"/>
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundDisabled}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -57,11 +54,10 @@
 
     <Style x:Key="NavBtn" TargetType="Button" BasedOn="{StaticResource ButtonStyle}">
         <Setter Property="Background" Value="{StaticResource BgDarkSolid}"/>
-        <Setter Property="Padding" Value="23,0,0,0"/>
+        <Setter Property="Padding" Value="23,0,0,1"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="FontSize" Value="19"/>
-        <Setter Property="FocusVisualStyle" Value="{DynamicResource {x:Static SystemParameters.FocusVisualStyleKey}}"/>
         <Setter Property="Height" Value="48"/>
         <Setter Property="Width" Value="170"/>
         <Setter Property="Template">
@@ -79,17 +75,14 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Background" Property="Background" Value="#2b2b2b"/>
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPointerOver}"/>
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundPointerOver}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="Background" Property="Background" Value="{StaticResource BgBrushInv}"/>
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPressed}"/>
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundPressed}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Background" Property="Background" Value="{DynamicResource ButtonBackgroundDisabled}"/>
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushDisabled}"/>
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundDisabled}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -99,6 +92,7 @@
     </Style>
 
     <Style x:Key="NavBtnSelected" TargetType="Button" BasedOn="{StaticResource NavBtn}">
+        <Setter Property="Background" Value="{StaticResource BgBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -114,17 +108,14 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Background" Property="Background" Value="{StaticResource SecondarySolid}"/>
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPointerOver}"/>
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundPointerOver}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="Background" Property="Background" Value="{StaticResource BgBrushInv}"/>
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPressed}"/>
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundPressed}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Background" Property="Background" Value="{DynamicResource ButtonBackgroundDisabled}"/>
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushDisabled}"/>
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundDisabled}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>

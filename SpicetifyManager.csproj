@@ -13,8 +13,8 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AssemblyName>Spicetify Manager</AssemblyName>
-    <FileVersion>2.0.1</FileVersion>
-    <AssemblyVersion>2.0.1.0</AssemblyVersion>
+    <FileVersion>2.1.0</FileVersion>
+    <AssemblyVersion>2.1.0.0</AssemblyVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/AdotBdot/SpicetifyManager</RepositoryUrl>
@@ -49,7 +49,7 @@
   <ItemGroup>
     <PackageReference Include="ini-parser" Version="2.5.2" />
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
-    <PackageReference Include="Octokit" Version="0.51.0" />
+    <PackageReference Include="Octokit" Version="4.0.3" />
   </ItemGroup>
 
   <ItemGroup>

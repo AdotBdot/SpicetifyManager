@@ -7,19 +7,40 @@ using SpicetifyManager.Source;
 
 namespace SpicetifyManager
 {
-    public class Spicetify
+    public sealed class Spicetify
     {
-        public Spicetify()
+        private Spicetify()
         {
             UserDirectory = Environment.ExpandEnvironmentVariables(@"%APPDATA%\spicetify\");
             CliDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\spicetify-cli\");
-
             Detected = DetectSpicetify();
+
             if(Detected)
             {
-                ConfigFile = ReadConfigPath();
+                ConfigFilePath = ReadConfigPath();
                 Version = ReadVersion();
+                Settings = new Settings();
                 ListAll();
+            }
+        }
+
+        private static Spicetify _Instance;
+        private static readonly object _Lock = new();
+
+        public static Spicetify Instance
+        {
+            get
+            {
+                lock(_Lock)
+                {
+                    if(_Instance == null)
+                    {
+                        _Instance = new Spicetify();
+                        _Instance.Settings.Load();
+                    }
+
+                    return _Instance;
+                }
             }
         }
 
@@ -44,10 +65,10 @@ namespace SpicetifyManager
             }
         }
 
-        public List<string> GetColors(string themeName)
+        public List<string>? GetThemeColors(string themeName)
         {
             if(!Detected)
-                return new List<string>();
+                return null;
 
             string[] lines;
 
@@ -57,36 +78,36 @@ namespace SpicetifyManager
             }
             catch(FileNotFoundException)
             {
-                return new List<string>();
+                return null;
             }
             catch(DirectoryNotFoundException e)
             {
                 try
                 {
-                    lines = File.ReadAllLines(UserDirectory + "..\\spicetify-cli\\Themes\\" + themeName + "\\color.ini");
+                    lines = File.ReadAllLines(CliDirectory + "Themes\\" + themeName + "\\color.ini");
                 }
                 catch(FileNotFoundException)
                 {
-                    return new List<string>();
+                    return null;
                 }
                 catch(DirectoryNotFoundException)
                 {
-                    return new List<string>();
+                    return null;
                 }
                 catch(Exception exception)
                 {
                     Console.WriteLine("Handled: " + e);
                     Console.WriteLine("Unhandled exception:" + exception);
-                    return new List<string>();
+                    return null;
                 }
             }
             catch(Exception e)
             {
                 Logger.Log("Unhandled exception:" + e);
-                return new List<string>();
+                return null;
             }
 
-            List<string> returnValue = new();
+            List<string> themeColors = new();
 
             foreach(string line in lines)
             {
@@ -94,40 +115,25 @@ namespace SpicetifyManager
                 {
                     string color = line;
                     color = color.Replace("[", "").Replace("]", "");
-                    returnValue.Add(color);
+                    themeColors.Add(color);
                 }
             }
 
-            return returnValue;
-        }
-
-        public List<string> GetCustomApps()
-        {
-            return _CustomApps;
-        }
-
-        public List<string> GetExtensions()
-        {
-            return _Extensions;
-        }
-
-        public List<string> GetThemes()
-        {
-            return _Themes;
+            return themeColors;
         }
 
         public void OpenConfigFile()
         {
-            if(ConfigFile == null)
+            if(ConfigFilePath == null)
                 return;
 
             Process.Start(new ProcessStartInfo()
             {
-                FileName = ConfigFile,
+                FileName = ConfigFilePath,
                 UseShellExecute = true,
             });
 
-            Logger.Log(ConfigFile);
+            Logger.Log("open" + ConfigFilePath);
         }
 
         public void OpenCustomAppsFolder()
@@ -282,20 +288,20 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            _CustomApps = new List<string>();
+            CustomAppsList = new List<string>();
 
             //.spicetify
             string[] userApps = Directory.GetDirectories(UserDirectory + "CustomApps");
             foreach(string app in userApps)
             {
-                _CustomApps.Add(app.Substring(app.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+                CustomAppsList.Add(app.Substring(app.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
 
             //spicetify-cli
             string[] buildInApps = Directory.GetDirectories(CliDirectory + "\\CustomApps");
             foreach(string app in buildInApps)
             {
-                _CustomApps.Add(app.Substring(app.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+                CustomAppsList.Add(app.Substring(app.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
         }
 
@@ -304,20 +310,20 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            _Extensions = new List<string>();
+            ExtensionsList = new List<string>();
 
             //.spicetify
             string[] userExt = Directory.GetFiles(UserDirectory + "Extensions");
             foreach(string ext in userExt)
             {
-                _Extensions.Add(ext.Substring(ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+                ExtensionsList.Add(ext.Substring(ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
 
             //spicetify-cli
             string[] builtInExt = Directory.GetFiles(CliDirectory + "Extensions");
             foreach(string ext in builtInExt)
             {
-                _Extensions.Add(ext.Substring(ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+                ExtensionsList.Add(ext.Substring(ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
         }
 
@@ -326,31 +332,32 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            _Themes = new List<string> { "(none)" };
+            ThemesList = new List<string> {"(none)"};
 
             //.spicetify
             string[] userThemes = Directory.GetDirectories(UserDirectory + "Themes");
             foreach(string theme in userThemes)
             {
-                _Themes.Add(theme.Substring(theme.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+                ThemesList.Add(theme.Substring(theme.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
 
             //spicetify-cli
-            string[] buildInThemes = Directory.GetDirectories(CliDirectory + "Themes");
-            foreach(string theme in buildInThemes)
+            string[] builtInThemes = Directory.GetDirectories(CliDirectory + "Themes");
+            foreach(string theme in builtInThemes)
             {
-                _Themes.Add(theme.Substring(theme.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+                ThemesList.Add(theme.Substring(theme.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
         }
 
         public readonly bool Detected;
-        public string? Version;
-        public readonly string? ConfigFile;
+        public string? Version{get; private set;}
+        public readonly string? ConfigFilePath;
         public readonly string UserDirectory;
         public readonly string CliDirectory;
 
-        private List<string>? _CustomApps;
-        private List<string>? _Extensions;
-        private List<string>? _Themes;
+        public Settings Settings;
+        public List<string>? CustomAppsList{get; private set;}
+        public List<string>? ExtensionsList{get; private set;}
+        public List<string>? ThemesList{get; private set;}
     }
 }
