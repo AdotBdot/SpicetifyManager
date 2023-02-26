@@ -158,5 +158,10 @@ namespace SpicetifyManager.Pages
         {
             Navigate("Logs");
         }
+
+        private void InstallBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigate("Install");
+        }
     }
 }

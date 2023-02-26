@@ -13,14 +13,24 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <ui:SimpleStackPanel x:Name="NavBar" Grid.Column="0" Orientation="Vertical" Width="170" Spacing="7" Background="#141414">
-            <Button x:Name="ThemesBtn" Style="{StaticResource NavBtn}" Content="Themes" Click="ThemesBtn_Click"/>
-            <Button x:Name="PluginsBtn" Style="{StaticResource NavBtn}" Content="Plugins" Click="PluginsBtn_Click"/>
-            <Button x:Name="SettingsBtn" Style="{StaticResource NavBtn}" Content="Settings" Click="SettingsBtn_Click"/>
-            <Button x:Name="ManageBtn" Style="{StaticResource NavBtn}" Content="Manage" Click="ManageBtn_Click"/>
-            <Button x:Name="AboutBtn" Style="{StaticResource NavBtn}" Content="About" Click="AboutBtn_Click"/>
-            <Button x:Name="LogsBtn" Style="{StaticResource NavBtn}" Content="Logs" Click="LogsBtn_Click"/>
-        </ui:SimpleStackPanel>
+        <Grid Grid.Column="0" x:Name="NavBar" Width="170" Background="#141414">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" x:Name="ThemesBtn" Style="{StaticResource NavBtn}" Content="Themes" Click="ThemesBtn_Click"/>
+            <Button Grid.Row="1" x:Name="PluginsBtn" Style="{StaticResource NavBtn}" Content="Plugins" Click="PluginsBtn_Click"/>
+            <Button Grid.Row="2" x:Name="SettingsBtn" Style="{StaticResource NavBtn}" Content="Settings" Click="SettingsBtn_Click"/>
+            <Button Grid.Row="3" x:Name="ManageBtn" Style="{StaticResource NavBtn}" Content="Manage" Click="ManageBtn_Click"/>
+            <Button Grid.Row="4" x:Name="AboutBtn" Style="{StaticResource NavBtn}" Content="About" Click="AboutBtn_Click"/>
+            <Button Grid.Row="5" x:Name="LogsBtn" Style="{StaticResource NavBtn}" Content="Logs" Click="LogsBtn_Click"/>
+            <Button Grid.Row="6" x:Name="InstallBtn" Style="{StaticResource NavBtn}" Content="Install" Click="InstallBtn_Click" Margin="0" VerticalAlignment="Bottom"/>
+        </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
