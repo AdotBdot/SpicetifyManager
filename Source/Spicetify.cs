@@ -280,7 +280,6 @@ namespace SpicetifyManager
             Logger.Log("Running upgrade sequence...");
             await Upgrade();
             await RestoreBackupApply();
-            Logger.Log("Fully Upgraded!");
         }
 
         private string ReadConfigPath()
