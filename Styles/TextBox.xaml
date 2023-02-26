@@ -154,8 +154,6 @@
                             <Setter TargetName="PlaceholderTextContentPresenter" Property="Foreground"
                                     Value="{DynamicResource TextControlPlaceholderForegroundFocused}"/>
                             <Setter Property="Background" Value="{DynamicResource TextControlBackgroundFocused}"/>
-                            <Setter TargetName="BorderElement" Property="BorderBrush" Value="{StaticResource PrimarySolid}"/>
-                            <Setter TargetName="BorderElement" Property="BorderThickness" Value="{DynamicResource TextControlBorderThemeThicknessFocused}"/>
                             <Setter Property="Foreground" Value="{DynamicResource TextControlForegroundFocused}"/>
                         </Trigger>
                         <MultiTrigger>
