@@ -15,9 +15,26 @@ namespace SpicetifyManager.Pages
     {
         public MainWindow()
         {
+            Pages = new()
+            {
+                {"Start", new StartPage()},
+                {"Logs", new LogsPage()},
+                {"Install", new InstallPage()}
+            };
+
             InitializeComponent();
+            
+            Pages.Add("Themes", new ThemesPage());
+            Pages.Add("Plugins", new PluginsPage());
+            Pages.Add("Settings", new SettingsPage());
+            Pages.Add("Manage", new ManagePage());
+            Pages.Add("About", new AboutPage());
+
             if(Spicetify.Instance.Detected)
+            {
                 Navigate("Start");
+                InstallBtn.Visibility = Visibility.Hidden;
+            }
             else
             {
                 ApplyBtn.IsEnabled = false;
@@ -30,28 +47,17 @@ namespace SpicetifyManager.Pages
                 ManageBtn.IsEnabled = false;
                 SettingsBtn.IsEnabled = false;
                 AboutBtn.IsEnabled = false;
-                LogsBtn.IsEnabled = false;
-                Navigate("SpicetifyNotDetectedPage");
+                Navigate("Install");
             }
 
         }
 
         //Navigation
-        public readonly Dictionary<string, Page> Pages = new()
-        {
-            {"Start", new StartPage()},
-            {"Themes", new ThemesPage()},
-            {"Plugins", new PluginsPage()},
-            {"Manage", new ManagePage()},
-            {"Settings", new SettingsPage()},
-            {"About", new AboutPage()},
-            {"Logs", new LogsPage()},
-            {"SpicetifyNotDetected", new SpicetifyNotDetectedPage()}
-        };
+        public readonly Dictionary<string, Page> Pages;
 
         private void Navigate(string navItemTag)
         {
-            ContentFrame.Navigate(Spicetify.Instance.Detected ? Pages[navItemTag] : Pages["SpicetifyNotDetected"]);
+            ContentFrame.Navigate(Pages[navItemTag]);
         }
 
         private void ContentFrame_Navigated(object sender, NavigationEventArgs e)
