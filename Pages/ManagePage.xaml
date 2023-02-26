@@ -10,7 +10,7 @@
             <Setter Property="Padding" Value="11,0,0,0"/>
         </Style>
     </ui:Page.Resources>
-    <ui:SimpleStackPanel Spacing="11">
+    <ui:SimpleStackPanel Spacing="7">
         <Label Content="Manage" Style="{StaticResource PageTitle}"/>
         <Button x:Name="BackupBtn" Content="Backup" Click="BackupBtn_Click"/>
         <Button x:Name="ClearBtn" Content="Clear Backup" Click="ClearBtn_Click"/>
