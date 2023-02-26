@@ -322,6 +322,8 @@ namespace SpicetifyManager
             {
                 CustomAppsList.Add(app.Substring(app.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
+
+            Logger.Log("Found " + (userApps.Length + builtInApps.Length) + " custom apps.");
         }
 
         private void ListExtensions()
@@ -344,6 +346,8 @@ namespace SpicetifyManager
             {
                 ExtensionsList.Add(ext.Substring(ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
+
+            Logger.Log("Found " + (userExt.Length + builtInExt.Length) + " extensions.");
         }
 
         private void ListThemes()
@@ -366,6 +370,8 @@ namespace SpicetifyManager
             {
                 ThemesList.Add(theme.Substring(theme.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
+
+            Logger.Log("Found " + (userThemes.Length + builtInThemes.Length) + " themes.");
         }
 
         public readonly bool Detected;
