@@ -12,7 +12,7 @@ namespace SpicetifyManager
         private Spicetify()
         {
             UserDirectory = Environment.ExpandEnvironmentVariables(@"%APPDATA%\spicetify\");
-            CliDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\spicetify-cli\");
+            CliDirectory = Environment.ExpandEnvironmentVariables(@"%LOCALAPPDATA%\spicetify\");
             Detected = DetectSpicetify();
 
             if(Detected)
