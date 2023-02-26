@@ -46,23 +46,42 @@ namespace SpicetifyManager
 
         public bool DetectSpicetify()
         {
+            Logger.Log("Detecting Spicetify...");
+
+            bool detected = true;
             try
             {
-                return File.Exists(CliDirectory + "spicetify.exe");
+                if(!Directory.Exists(CliDirectory))
+                {
+                    Logger.Log("Directory " + CliDirectory + " does not exist.");
+                    detected = false;
             }
-            catch(DirectoryNotFoundException)
+
+                if(!Directory.Exists(UserDirectory))
             {
-                return false;
+                    Logger.Log("Directory " + UserDirectory + " does not exist.");
+                    detected = false;
             }
-            catch(FileNotFoundException)
+
+                if(!File.Exists(CliDirectory + "spicetify.exe"))
             {
-                return false;
+                    Logger.Log("File " + CliDirectory + "spicetify.exe does not exist.");
+                    detected = false;
+            }
             }
             catch(Exception e)
             {
                 Console.WriteLine(e);
-                return false;
+                Logger.Log("Unexpected exception: " + e.Message);
+                detected = false;
             }
+
+            if(detected)
+            {
+                Logger.Log("Spicetify has been detected successfully.");
+        }
+
+            return detected;
         }
 
         public List<string>? GetThemeColors(string themeName)
