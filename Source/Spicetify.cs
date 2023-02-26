@@ -152,7 +152,7 @@ namespace SpicetifyManager
                 UseShellExecute = true,
             });
 
-            Logger.Log("open" + ConfigFilePath);
+            Logger.Log("open " + ConfigFilePath);
         }
 
         public void OpenCustomAppsFolder()
@@ -167,7 +167,7 @@ namespace SpicetifyManager
                 Verb = "open"
             });
 
-            Logger.Log("open" + UserDirectory + "CustomApps\\");
+            Logger.Log("open " + UserDirectory + "CustomApps\\");
         }
 
         public void OpenExtensionsFolder()
@@ -182,7 +182,7 @@ namespace SpicetifyManager
                 Verb = "open"
             });
 
-            Logger.Log("open" + UserDirectory + "Extensions\\");
+            Logger.Log("open " + UserDirectory + "Extensions\\");
         }
 
         public void OpenThemeFolder()
@@ -197,7 +197,7 @@ namespace SpicetifyManager
                 Verb = "open"
             });
 
-            Logger.Log("open" + UserDirectory + "Themes\\");
+            Logger.Log("open " + UserDirectory + "Themes\\");
         }
 
         public async Task Apply()
