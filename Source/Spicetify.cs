@@ -277,7 +277,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            Logger.Log("Running Upgrade Sequence...");
+            Logger.Log("Running upgrade sequence...");
             await Upgrade();
             await RestoreBackupApply();
             Logger.Log("Fully Upgraded!");
@@ -317,8 +317,8 @@ namespace SpicetifyManager
             }
 
             //spicetify-cli
-            string[] buildInApps = Directory.GetDirectories(CliDirectory + "\\CustomApps");
-            foreach(string app in buildInApps)
+            string[] builtInApps = Directory.GetDirectories(CliDirectory + "\\CustomApps");
+            foreach(string app in builtInApps)
             {
                 CustomAppsList.Add(app.Substring(app.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
