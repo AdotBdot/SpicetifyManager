@@ -1,0 +1,19 @@
+﻿<ui:Page x:Class="SpicetifyManager.Pages.InstallPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:ui="http://schemas.modernwpf.com/2019" mc:Ignorable="d" d:DesignHeight="438"
+         d:DesignWidth="700">
+    <ui:SimpleStackPanel>
+        <Label Content="Spicetify Not Found" Style="{StaticResource PageTitle}"/>
+        <TextBlock FontSize="14" Foreground="White" Margin="3,0,0,0">
+            Spicetify Manager has not found necessary files to function properly. Check logs for more information. 
+            <LineBreak/>
+            Install Spicetify from 
+            <Hyperlink NavigateUri="https://spicetify.app/docs/getting-started" RequestNavigate="Spicetify_RequestNavigate">spicetify.app/docs/getting-started</Hyperlink>
+            and restart the application.
+            <LineBreak/>
+            If you think an error has occured, let me know. (
+            <Hyperlink NavigateUri="https://github.com/AdotBdot/SpicetifyManager/issues" RequestNavigate="Issues_RequestNavigate">github.com/AdotBdot/SpicetifyManager/issues</Hyperlink>
+            )
+        </TextBlock>
+    </ui:SimpleStackPanel>
+</ui:Page>
