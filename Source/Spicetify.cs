@@ -116,13 +116,13 @@ namespace SpicetifyManager
                 catch(Exception exception)
                 {
                     Console.WriteLine("Handled: " + e);
-                    Console.WriteLine("Unhandled exception:" + exception);
+                    Console.WriteLine("Unexpected exception:" + exception);
                     return null;
                 }
             }
             catch(Exception e)
             {
-                Logger.Log("Unhandled exception:" + e);
+                Logger.Log("Unexpected exception:" + e);
                 return null;
             }
 
