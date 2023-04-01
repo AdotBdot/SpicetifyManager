@@ -14,7 +14,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AssemblyName>Spicetify Manager</AssemblyName>
     <FileVersion>$(AssemblyVersion)</FileVersion>
-    <AssemblyVersion>2.2.0</AssemblyVersion>
+    <AssemblyVersion>2.2.1</AssemblyVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/AdotBdot/SpicetifyManager</RepositoryUrl>
