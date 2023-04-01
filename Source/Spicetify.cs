@@ -376,8 +376,8 @@ namespace SpicetifyManager
         public readonly bool Detected;
         public string? Version{get; private set;}
         public readonly string? ConfigFilePath;
-        public readonly string UserDirectory;
-        public readonly string CliDirectory;
+        public string UserDirectory{get; private set;}
+        public string CliDirectory{get; private set;}
 
         public Settings Settings;
         public List<string>? CustomAppsList{get; private set;}
