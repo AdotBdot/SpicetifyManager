@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using SpicetifyManager.Source;
 
@@ -11,8 +12,6 @@ namespace SpicetifyManager
     {
         private Spicetify()
         {
-            UserDirectory = Environment.ExpandEnvironmentVariables(@"%APPDATA%\spicetify\");
-            CliDirectory = Environment.ExpandEnvironmentVariables(@"%LOCALAPPDATA%\spicetify\");
             Detected = DetectSpicetify();
 
             if(Detected)
@@ -47,8 +46,21 @@ namespace SpicetifyManager
         public bool DetectSpicetify()
         {
             Logger.Log("Detecting Spicetify...");
-
             bool detected = true;
+
+            //Reading Directories
+            string pathDirectory = Regex.Match(Environment.GetEnvironmentVariable("Path"), @"[^;]+SPICETIFY?[^;]+", RegexOptions.IgnoreCase).Value + "\\";
+
+            IniFile configFile = new();
+            configFile.LoadFile("config.ini");
+
+            UserDirectory = Environment.ExpandEnvironmentVariables(configFile.ReadString("SpicetifyManagerConfig", "UserDirectory"));
+            CliDirectory = Environment.ExpandEnvironmentVariables(configFile.ReadString("SpicetifyManagerConfig", "CliDirectory"));
+
+            //Checking Directories
+            if(CliDirectory != pathDirectory)
+                Logger.Log($"Directories mismatch:\n  PathDirectory: \"{pathDirectory}\"\n  ConfigDirectory: \"{CliDirectory}\"\n  Application may not work properly.");
+
             try
             {
                 if(!Directory.Exists(CliDirectory))
@@ -77,9 +89,7 @@ namespace SpicetifyManager
             }
 
             if(detected)
-            {
                 Logger.Log("Spicetify has been detected successfully.");
-            }
 
             return detected;
         }
