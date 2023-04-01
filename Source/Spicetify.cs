@@ -65,19 +65,19 @@ namespace SpicetifyManager
             {
                 if(!Directory.Exists(CliDirectory))
                 {
-                    Logger.Log($"Directory {CliDirectory} does not exist.");
+                    Logger.Log($"Directory \"{CliDirectory}\" does not exist.");
                     detected = false;
                 }
 
                 if(!Directory.Exists(UserDirectory))
                 {
-                    Logger.Log($"Directory {UserDirectory} does not exist.");
+                    Logger.Log($"File \"{CliDirectory}spicetify.exe\" does not exist.");
                     detected = false;
                 }
 
                 if(!File.Exists(CliDirectory + "spicetify.exe"))
                 {
-                    Logger.Log($"File {CliDirectory}spicetify.exe does not exist.");
+                    Logger.Log($"Directory \"{UserDirectory}\" does not exist.");
                     detected = false;
                 }
             }
