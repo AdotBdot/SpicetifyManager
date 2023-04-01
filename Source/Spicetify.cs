@@ -90,6 +90,8 @@ namespace SpicetifyManager
 
             if(detected)
                 Logger.Log("Spicetify has been detected successfully.");
+            else
+                Logger.Log("Spicetify has not been detected.");
 
             return detected;
         }
