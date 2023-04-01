@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using IniParser;
 using IniParser.Model;
@@ -15,7 +16,14 @@ namespace SpicetifyManager
 
         public void LoadFile(string configFile)
         {
-            _Data = _Parser.ReadFile(configFile);
+            try
+            {
+                _Data = _Parser.ReadFile(configFile);
+            }
+            catch(FileNotFoundException)
+            {
+                Logger.Log($"File \"{configFile}\" does not exist.");
+            }
         }
 
         public bool ReadBool(string section, string key)
