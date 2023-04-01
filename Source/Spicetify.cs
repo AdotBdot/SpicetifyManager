@@ -53,26 +53,26 @@ namespace SpicetifyManager
             {
                 if(!Directory.Exists(CliDirectory))
                 {
-                    Logger.Log("Directory " + CliDirectory + " does not exist.");
+                    Logger.Log($"Directory {CliDirectory} does not exist.");
                     detected = false;
                 }
 
                 if(!Directory.Exists(UserDirectory))
                 {
-                    Logger.Log("Directory " + UserDirectory + " does not exist.");
+                    Logger.Log($"Directory {UserDirectory} does not exist.");
                     detected = false;
                 }
 
                 if(!File.Exists(CliDirectory + "spicetify.exe"))
                 {
-                    Logger.Log("File " + CliDirectory + "spicetify.exe does not exist.");
+                    Logger.Log($"File {CliDirectory}spicetify.exe does not exist.");
                     detected = false;
                 }
             }
             catch(Exception e)
             {
                 Console.WriteLine(e);
-                Logger.Log("Unexpected exception: " + e.Message);
+                Logger.Log($"Unexpected exception: {e.Message}");
                 detected = false;
             }
 
@@ -122,7 +122,7 @@ namespace SpicetifyManager
             }
             catch(Exception e)
             {
-                Logger.Log("Unexpected exception:" + e);
+                Logger.Log($"Unexpected exception: {e.Message}");
                 return null;
             }
 
@@ -152,7 +152,7 @@ namespace SpicetifyManager
                 UseShellExecute = true,
             });
 
-            Logger.Log("open " + ConfigFilePath);
+            Logger.Log($"open {ConfigFilePath}");
         }
 
         public void OpenCustomAppsFolder()
@@ -167,7 +167,7 @@ namespace SpicetifyManager
                 Verb = "open"
             });
 
-            Logger.Log("open " + UserDirectory + "CustomApps\\");
+            Logger.Log($"open {UserDirectory}CustomApps\\");
         }
 
         public void OpenExtensionsFolder()
@@ -182,7 +182,7 @@ namespace SpicetifyManager
                 Verb = "open"
             });
 
-            Logger.Log("open " + UserDirectory + "Extensions\\");
+            Logger.Log($"open {UserDirectory}Extensions\\");
         }
 
         public void OpenThemeFolder()
@@ -197,7 +197,7 @@ namespace SpicetifyManager
                 Verb = "open"
             });
 
-            Logger.Log("open " + UserDirectory + "Themes\\");
+            Logger.Log($"open {UserDirectory}Themes\\");
         }
 
         public async Task Apply()
@@ -322,7 +322,7 @@ namespace SpicetifyManager
                 CustomAppsList.Add(app.Substring(app.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
 
-            Logger.Log("Found " + (userApps.Length + builtInApps.Length) + " custom apps.");
+            Logger.Log($"Found {userApps.Length + builtInApps.Length} custom apps.");
         }
 
         private void ListExtensions()
@@ -346,7 +346,7 @@ namespace SpicetifyManager
                 ExtensionsList.Add(ext.Substring(ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
 
-            Logger.Log("Found " + (userExt.Length + builtInExt.Length) + " extensions.");
+            Logger.Log($"Found {userExt.Length + builtInExt.Length} extensions.");
         }
 
         private void ListThemes()
@@ -370,7 +370,7 @@ namespace SpicetifyManager
                 ThemesList.Add(theme.Substring(theme.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
 
-            Logger.Log("Found " + (userThemes.Length + builtInThemes.Length) + " themes.");
+            Logger.Log($"Found {userThemes.Length + builtInThemes.Length} themes.");
         }
 
         public readonly bool Detected;

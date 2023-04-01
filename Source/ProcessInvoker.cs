@@ -30,7 +30,7 @@ namespace SpicetifyManager.Source
                 throw;
             }
 
-            Logger.Log(">" + fileName + " " + args);
+            Logger.Log($">{fileName} {args}");
 
             List<string> result = new();
             while(!process.StandardOutput.EndOfStream)
