@@ -16,7 +16,7 @@
 ## Features
  - Autodetection of themes, colors, plugins and custom apps.
  - Full support to Spicetify config file settings, preprocesses and additional options.
- - Portable, no installation required.
+ - Portable.
  - Spicetify logs directly in app.
  - Version checker.
 
@@ -24,6 +24,11 @@
  - Latest version of spicetify-cli.
  - NET 6.0.x Desktop Runtime. Can be downloaded <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">here</a>.
  - Windows 11 or Windows 10 (18362) or newer.
+
+## Installation
+ - Simply extract the archive to the desired directory.
+#### For a custom Spicetify installation(other than the recommended one)
+ - Edit directories in config.ini to match your spicetify installation directories.
 
 ## References
  - ini-parser: <a href="https://github.com/rickyah/ini-parser">https://github.com/rickyah/ini-parser</a>
