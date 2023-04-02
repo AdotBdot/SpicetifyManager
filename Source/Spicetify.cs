@@ -49,7 +49,7 @@ namespace SpicetifyManager
             bool detected = true;
 
             //Reading Directories
-            string pathDirectory = Regex.Match(Environment.GetEnvironmentVariable("Path"), @"[^;]+SPICETIFY?[^;]+", RegexOptions.IgnoreCase).Value + "\\";
+            string pathDirectory = Regex.Match(Environment.GetEnvironmentVariable("Path"), @"[^;]+SPICETIFY?[^;]+", RegexOptions.IgnoreCase).Value;
 
             IniFile configFile = new();
             configFile.LoadFile("config.ini");
@@ -68,9 +68,9 @@ namespace SpicetifyManager
                     Logger.Log($"Directory \"{CliDirectory}\" does not exist.");
                     detected = false;
                 }
-                else if(!File.Exists(CliDirectory + "spicetify.exe"))
+                else if(!File.Exists(CliDirectory + "\\spicetify.exe"))
                 {
-                    Logger.Log($"File \"{CliDirectory}spicetify.exe\" does not exist.");
+                    Logger.Log($"File \"{CliDirectory}\\spicetify.exe\" does not exist.");
                     detected = false;
                 }
 
@@ -104,7 +104,7 @@ namespace SpicetifyManager
 
             try
             {
-                lines = File.ReadAllLines(UserDirectory + "Themes\\" + themeName + "\\color.ini");
+                lines = File.ReadAllLines(UserDirectory + "\\Themes\\" + themeName + "\\color.ini");
             }
             catch(FileNotFoundException)
             {
@@ -114,7 +114,7 @@ namespace SpicetifyManager
             {
                 try
                 {
-                    lines = File.ReadAllLines(CliDirectory + "Themes\\" + themeName + "\\color.ini");
+                    lines = File.ReadAllLines(CliDirectory + "\\Themes\\" + themeName + "\\color.ini");
                 }
                 catch(FileNotFoundException)
                 {
@@ -173,12 +173,12 @@ namespace SpicetifyManager
 
             Process.Start(new ProcessStartInfo()
             {
-                FileName = UserDirectory + "CustomApps\\",
+                FileName = UserDirectory + "\\CustomApps\\",
                 UseShellExecute = true,
                 Verb = "open"
             });
 
-            Logger.Log($"open {UserDirectory}CustomApps\\");
+            Logger.Log($"open {UserDirectory}\\CustomApps\\");
         }
 
         public void OpenExtensionsFolder()
@@ -188,12 +188,12 @@ namespace SpicetifyManager
 
             Process.Start(new ProcessStartInfo()
             {
-                FileName = UserDirectory + "Extensions\\",
+                FileName = UserDirectory + "\\Extensions\\",
                 UseShellExecute = true,
                 Verb = "open"
             });
 
-            Logger.Log($"open {UserDirectory}Extensions\\");
+            Logger.Log($"open {UserDirectory}\\Extensions\\");
         }
 
         public void OpenThemeFolder()
@@ -203,12 +203,12 @@ namespace SpicetifyManager
 
             Process.Start(new ProcessStartInfo()
             {
-                FileName = UserDirectory + "Themes\\",
+                FileName = UserDirectory + "\\Themes\\",
                 UseShellExecute = true,
                 Verb = "open"
             });
 
-            Logger.Log($"open {UserDirectory}Themes\\");
+            Logger.Log($"open {UserDirectory}\\Themes\\");
         }
 
         public async Task Apply()
@@ -216,7 +216,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            ProcessInvoker.Invoke(CliDirectory + "spicetify.exe", "apply");
+            ProcessInvoker.Invoke(CliDirectory + "\\spicetify.exe", "apply");
         }
 
         public async Task Backup()
@@ -224,7 +224,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            ProcessInvoker.Invoke(CliDirectory + "spicetify.exe", "backup");
+            ProcessInvoker.Invoke(CliDirectory + "\\spicetify.exe", "backup");
         }
 
         public async Task Clear()
@@ -232,7 +232,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            ProcessInvoker.Invoke(CliDirectory + "spicetify.exe", "-q clear");
+            ProcessInvoker.Invoke(CliDirectory + "\\spicetify.exe", "-q clear");
         }
 
         public async Task EnableDevTools()
@@ -240,7 +240,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            ProcessInvoker.Invoke(CliDirectory + "spicetify.exe", "enable-devtools");
+            ProcessInvoker.Invoke(CliDirectory + "\\spicetify.exe", "enable-devtools");
         }
 
         public async Task Restart()
@@ -248,7 +248,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            ProcessInvoker.Invoke(CliDirectory + "spicetify.exe", "restart");
+            ProcessInvoker.Invoke(CliDirectory + "\\spicetify.exe", "restart");
         }
 
         public async Task Restore()
@@ -256,7 +256,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            ProcessInvoker.Invoke(CliDirectory + "spicetify.exe", "restore");
+            ProcessInvoker.Invoke(CliDirectory + "\\spicetify.exe", "restore");
         }
 
         public async Task Update()
@@ -264,7 +264,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            ProcessInvoker.Invoke(CliDirectory + "spicetify.exe", "update");
+            ProcessInvoker.Invoke(CliDirectory + "\\spicetify.exe", "update");
         }
 
         public async Task Upgrade()
@@ -272,7 +272,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            ProcessInvoker.Invoke(CliDirectory + "spicetify.exe", "upgrade");
+            ProcessInvoker.Invoke(CliDirectory + "\\spicetify.exe", "upgrade");
         }
 
         public async Task RestoreBackupApply()
@@ -280,7 +280,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            ProcessInvoker.Invoke(CliDirectory + "spicetify.exe", "restore backup apply");
+            ProcessInvoker.Invoke(CliDirectory + "\\spicetify.exe", "restore backup apply");
         }
 
         public async Task FullUpgrade()
@@ -295,13 +295,13 @@ namespace SpicetifyManager
 
         private string ReadConfigPath()
         {
-            List<string> results = ProcessInvoker.Invoke(CliDirectory + "spicetify.exe", "-c");
+            List<string> results = ProcessInvoker.Invoke(CliDirectory + "\\spicetify.exe", "-c");
             return results[0];
         }
 
         private string ReadVersion()
         {
-            List<string> results = ProcessInvoker.Invoke(CliDirectory + "spicetify.exe", "-v");
+            List<string> results = ProcessInvoker.Invoke(CliDirectory + "\\spicetify.exe", "-v");
             return results[0];
         }
 
@@ -320,7 +320,7 @@ namespace SpicetifyManager
             CustomAppsList = new List<string>();
 
             //.spicetify
-            string[] userApps = Directory.GetDirectories(UserDirectory + "CustomApps");
+            string[] userApps = Directory.GetDirectories(UserDirectory + "\\CustomApps");
             foreach(string app in userApps)
             {
                 CustomAppsList.Add(app.Substring(app.LastIndexOf("\\", StringComparison.Ordinal) + 1));
@@ -344,14 +344,14 @@ namespace SpicetifyManager
             ExtensionsList = new List<string>();
 
             //.spicetify
-            string[] userExt = Directory.GetFiles(UserDirectory + "Extensions");
+            string[] userExt = Directory.GetFiles(UserDirectory + "\\Extensions");
             foreach(string ext in userExt)
             {
                 ExtensionsList.Add(ext.Substring(ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
 
             //spicetify-cli
-            string[] builtInExt = Directory.GetFiles(CliDirectory + "Extensions");
+            string[] builtInExt = Directory.GetFiles(CliDirectory + "\\Extensions");
             foreach(string ext in builtInExt)
             {
                 ExtensionsList.Add(ext.Substring(ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
@@ -368,14 +368,14 @@ namespace SpicetifyManager
             ThemesList = new List<string> {"(none)"};
 
             //.spicetify
-            string[] userThemes = Directory.GetDirectories(UserDirectory + "Themes");
+            string[] userThemes = Directory.GetDirectories(UserDirectory + "\\Themes");
             foreach(string theme in userThemes)
             {
                 ThemesList.Add(theme.Substring(theme.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
 
             //spicetify-cli
-            string[] builtInThemes = Directory.GetDirectories(CliDirectory + "Themes");
+            string[] builtInThemes = Directory.GetDirectories(CliDirectory + "\\Themes");
             foreach(string theme in builtInThemes)
             {
                 ThemesList.Add(theme.Substring(theme.LastIndexOf("\\", StringComparison.Ordinal) + 1));
