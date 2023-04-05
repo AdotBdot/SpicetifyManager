@@ -26,7 +26,7 @@
  - Windows 11 or Windows 10 (18362) or newer.
 
 ## Installation
- - Simply extract the archive to the desired directory.
+ - Simply extract the archive (SpicetifyManager-X.X.X-AnyCPU.zip) to the desired directory.
 #### For a custom Spicetify installation(other than the recommended one)
  - Edit directories in config.ini to match your spicetify installation directories.
 
