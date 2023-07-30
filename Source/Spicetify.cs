@@ -58,18 +58,12 @@ namespace SpicetifyManager
             Logger.Log("Detecting Spicetify...");
             bool detected = true;
 
-            //Reading Directories
-            string pathDirectory = Regex.Match(Environment.GetEnvironmentVariable("Path"), @"[^;]+SPICETIFY?[^;]+", RegexOptions.IgnoreCase).Value;
-
+            //READING FROM CONFIG
             IniFile configFile = new();
             configFile.LoadFile("config.ini");
 
             UserDirectory = Environment.ExpandEnvironmentVariables(configFile.ReadString("SpicetifyManagerConfig", "UserDirectory"));
             CliDirectory = Environment.ExpandEnvironmentVariables(configFile.ReadString("SpicetifyManagerConfig", "CliDirectory"));
-
-            //Checking Directories
-            if(CliDirectory != pathDirectory)
-                Logger.Log($"Directories mismatch:\n  PathDirectory: \"{pathDirectory}\"\n  ConfigDirectory: \"{CliDirectory}\"\n  Application may not work properly.");
 
             try
             {
@@ -96,6 +90,44 @@ namespace SpicetifyManager
                 Logger.Log($"Unexpected exception: {e.Message}");
                 detected = false;
             }
+
+            //READING FROM PATH
+            string pathDirectory = Regex.Match(Environment.GetEnvironmentVariable("Path"), @"[^;]+SPICETIFY?[^;]+", RegexOptions.IgnoreCase).Value;
+            if(detected == false)
+            {
+                Logger.Log($"Changing client directory from: {CliDirectory} to: {pathDirectory}");
+                CliDirectory = pathDirectory;
+            }
+
+            detected = true;
+            try
+            {
+                if(!Directory.Exists(CliDirectory))
+                {
+                    Logger.Log($"Directory \"{CliDirectory}\" does not exist.");
+                    detected = false;
+                }
+                else if(!File.Exists(CliDirectory + "\\spicetify.exe"))
+                {
+                    Logger.Log($"File \"{CliDirectory}\\spicetify.exe\" does not exist.");
+                    detected = false;
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+                Logger.Log($"Unexpected exception: {e.Message}");
+                detected = false;
+            }
+
+            //Validating path directory
+            if( detected && CliDirectory != pathDirectory)
+                Logger.Log($"Directories mismatch:\n" +
+                           $"  Directory in PATH: \"{pathDirectory}\"\n" +
+                           $"  Directory in config: \"{CliDirectory}\"\n" +
+                           $"  Application may not work properly.");
+
+            //todo: READING FROM DIRECT EVOKE
 
             if(detected)
                 Logger.Log("Spicetify has been detected successfully.");
@@ -375,7 +407,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            ThemesList = new List<string> {"(none)"};
+            ThemesList = new List<string> { "(none)" };
 
             //.spicetify
             string[] userThemes = Directory.GetDirectories(UserDirectory + "\\Themes");
@@ -395,14 +427,14 @@ namespace SpicetifyManager
         }
 
         public readonly bool Detected;
-        public string? Version{get; private set;}
+        public string? Version { get; private set; }
         public readonly string? ConfigFilePath;
-        public string UserDirectory{get; private set;}
-        public string CliDirectory{get; private set;}
+        public string UserDirectory { get; private set; }
+        public string CliDirectory { get; private set; }
 
         public Settings Settings;
-        public List<string>? CustomAppsList{get; private set;}
-        public List<string>? ExtensionsList{get; private set;}
-        public List<string>? ThemesList{get; private set;}
+        public List<string>? CustomAppsList { get; private set; }
+        public List<string>? ExtensionsList { get; private set; }
+        public List<string>? ThemesList { get; private set; }
     }
 }
