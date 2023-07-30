@@ -12,6 +12,16 @@ namespace SpicetifyManager
     {
         private Spicetify()
         {
+            if(!File.Exists("config.ini"))
+            {
+                using(StreamWriter file = File.CreateText("config.ini"))
+                {
+                    file.WriteLine("[SpicetifyManagerConfig]");
+                    file.WriteLine("UserDirectory = %APPDATA%\\spicetify");
+                    file.WriteLine("CliDirectory  = %LOCALAPPDATA%\\spicetify");
+                }
+            }
+
             Detected = DetectSpicetify();
 
             if(Detected)
