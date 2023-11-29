@@ -63,6 +63,11 @@ namespace SpicetifyManager.Pages
             get {return Spicetify.Instance.Settings.InjectCss;}
             set {Spicetify.Instance.Settings.InjectCss = value;}
         }
+        public bool InjectThemeJsProperty
+        {
+            get {return Spicetify.Instance.Settings.InjectThemeJs;}
+            set {Spicetify.Instance.Settings.InjectThemeJs = value;}
+        }
 
         public bool ReplaceColorsProperty
         {

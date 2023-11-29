@@ -21,6 +21,7 @@ namespace SpicetifyManager
             CurrentTheme = configFile.ReadString("Setting", "current_theme");
             ColorScheme = configFile.ReadString("Setting", "color_scheme");
             InjectCss = configFile.ReadBool("Setting", "inject_css");
+            InjectThemeJs = configFile.ReadBool("Setting", "inject_theme_js");
             OverwriteAssets = configFile.ReadBool("Setting", "overwrite_assets");
             CheckSpicetifyUpgrade = configFile.ReadBool("Setting", "check_spicetify_upgrade");
             ReplaceColors = configFile.ReadBool("Setting", "replace_colors");
@@ -56,6 +57,7 @@ namespace SpicetifyManager
             configFile.WriteString("Setting", "current_theme", CurrentTheme);
             configFile.WriteString("Setting", "color_scheme", ColorScheme);
             configFile.WriteBool("Setting", "inject_css", InjectCss);
+            configFile.WriteBool("Setting", "inject_theme_js", InjectCss);
             configFile.WriteBool("Setting", "overwrite_assets", OverwriteAssets);
             configFile.WriteBool("Setting", "check_spicetify_upgrade", CheckSpicetifyUpgrade);
             configFile.WriteBool("Setting", "replace_colors", ReplaceColors);
@@ -82,6 +84,7 @@ namespace SpicetifyManager
             ColorScheme = string.Empty;
             OverwriteAssets = false;
             InjectCss = true;
+            InjectThemeJs = false;
             ReplaceColors = true;
             CheckSpicetifyUpgrade = false;
 
@@ -106,6 +109,7 @@ namespace SpicetifyManager
         public string ColorScheme{get; set;} = string.Empty;
         public bool OverwriteAssets{get; set;} = false;
         public bool InjectCss{get; set;} = true;
+        public bool InjectThemeJs {get;set;} = false;
         public bool ReplaceColors{get; set;} = true;
         public bool CheckSpicetifyUpgrade{get; set;} = false;
 

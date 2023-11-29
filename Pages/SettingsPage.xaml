@@ -52,6 +52,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="300"/>
@@ -60,11 +61,12 @@
                 <!--Grid Content-->
                 <CheckBox Grid.Column="0" Grid.Row="0" x:Name="OverwriteAssets" Content="Overwrite Assets" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=OverwriteAssetsProperty, Mode=TwoWay}"/>
                 <CheckBox Grid.Column="0" Grid.Row="1" x:Name="InjectCss" Content="Inject CSS" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=InjectCssProperty, Mode=TwoWay}"/>
-                <CheckBox Grid.Column="0" Grid.Row="2" x:Name="ReplaceColors" Content="Replace Colors" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=ReplaceColorsProperty, Mode=TwoWay}"/>
-                <CheckBox Grid.Column="0" Grid.Row="3" x:Name="CheckSpicetifyUpgrade" Content="Check Spicetify Upgrade" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=CheckSpicetifyUpgradeProperty, Mode=TwoWay}"/>
-                <CheckBox Grid.Column="0" Grid.Row="4" x:Name="HomeConfig" Content="Home Config" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=HomeConfigProperty, Mode=TwoWay}"/>
-                <CheckBox Grid.Column="0" Grid.Row="5" x:Name="SidebarConfig" Content="Sidebar Config" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=SidebarConfigProperty, Mode=TwoWay}"/>
-                <CheckBox Grid.Column="0" Grid.Row="6" x:Name="ExperimentalFeatures" Content="Experimental Features" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=ExperimentalFeaturesProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="0" Grid.Row="2" x:Name="InjectThemeJs" Content="Inject Theme.js" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=InjectThemeJsProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="0" Grid.Row="3" x:Name="ReplaceColors" Content="Replace Colors" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=ReplaceColorsProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="0" Grid.Row="4" x:Name="CheckSpicetifyUpgrade" Content="Check Spicetify Upgrade" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=CheckSpicetifyUpgradeProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="0" Grid.Row="5" x:Name="HomeConfig" Content="Home Config" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=HomeConfigProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="0" Grid.Row="6" x:Name="SidebarConfig" Content="Sidebar Config" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=SidebarConfigProperty, Mode=TwoWay}"/>
+                <CheckBox Grid.Column="0" Grid.Row="7" x:Name="ExperimentalFeatures" Content="Experimental Features" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=ExperimentalFeaturesProperty, Mode=TwoWay}"/>
                 <CheckBox Grid.Column="1" Grid.Row="0" x:Name="ExposeAPIs" Content="Expose API's" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=ExposeApisProperty, Mode=TwoWay}"/>
                 <CheckBox Grid.Column="1" Grid.Row="1" x:Name="DisableSentry" Content="Disable Sentry" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=DisableSentryProperty, Mode=TwoWay}"/>
                 <CheckBox Grid.Column="1" Grid.Row="2" x:Name="DisableUILogging" Content="Disable UI Logging" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding ElementName=_SettingsPage, Path=DisableUiLoggingProperty, Mode=TwoWay}"/>
