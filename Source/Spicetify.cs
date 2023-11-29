@@ -33,7 +33,7 @@ namespace SpicetifyManager
             }
         }
 
-        private static Spicetify _Instance;
+        private static Spicetify? _Instance;
         private static readonly object _Lock = new();
 
         public static Spicetify Instance
