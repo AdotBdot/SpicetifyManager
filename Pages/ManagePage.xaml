@@ -29,8 +29,8 @@
                         </Style>
                     </ui:MenuFlyout.MenuFlyoutPresenterStyle>
                     <ui:MenuFlyout.Items>
-                        <MenuItem x:Name="FullUpgrade" Header="Full Upgrade" Click="FullUpgrade_Click"/>
-                        <MenuItem x:Name="UpgradeOnly" Header="Upgrade Only" Click="UpgradeOnly_Click"/>
+                        <MenuItem x:Name="FullUpgrade" Header="Full Upgrade" Click="FullUpgrade_Click" ToolTip="Updates Spicetify then executes 'spicetify backup apply'"/>
+                        <MenuItem x:Name="UpgradeOnly" Header="Upgrade Only" Click="UpgradeOnly_Click" ToolTip="Updates Spicetify only"/>
                     </ui:MenuFlyout.Items>
                 </ui:MenuFlyout>
             </ui:DropDownButton.Flyout>
