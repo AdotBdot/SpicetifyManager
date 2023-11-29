@@ -22,7 +22,7 @@
                 <Setter Property="HorizontalAlignment" Value="Left"/>
                 <Setter Property="Padding" Value="0"/>
             </Style>
-            <clr:String x:Key="AppVersion">2.2.1</clr:String>
+            <clr:String x:Key="AppVersion">2.3.0</clr:String>
             <BitmapImage x:Key="Logo" UriSource="Resources/logo.png"/>
             <BitmapImage x:Key="RefreshArrow" UriSource="Resources/sharp_refresh_white_24dp.png"/>
         </ResourceDictionary>
