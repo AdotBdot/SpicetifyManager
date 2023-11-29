@@ -40,14 +40,14 @@
             <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource LabelStyle}" Content="Spicetify Version: " Margin="0,0,0,3"/>
             <Label Grid.Column="0" Grid.Row="2" Style="{StaticResource LabelStyle}" Content="Backup Version: " Margin="0,0,0,3"/>
             <ui:SimpleStackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Spacing="11">
-                <Label x:Name="AppVersionLabel" Style="{StaticResource VersionStyle}" Content="{StaticResource AppVersion}"/>
-                <Label x:Name="AppVersionStateLabel" Style="{StaticResource LabelStyle}" FontSize="15" Content=""/>
+                <Label x:Name="AppVersionLabel" Style="{StaticResource LabelStyle}" Content="{StaticResource AppVersion}" Margin="0,0,0,3"/>
+                <Label x:Name="AppVersionStateLabel" Style="{StaticResource LabelStyle}" FontSize="15" Content="" Margin="0,0,0,3"/>
             </ui:SimpleStackPanel>
             <ui:SimpleStackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Spacing="11">
-                <Label x:Name="SpicetifyVersionLabel" Style="{StaticResource VersionStyle}" Content="0.0.0"/>
-                <Label x:Name="SpicetifyVersionStateLabel" Style="{StaticResource LabelStyle}" FontSize="15" Content=""/>
+                <Label x:Name="SpicetifyVersionLabel" Style="{StaticResource LabelStyle}" Content="0.0.0" Margin="0,0,0,3"/>
+                <Label x:Name="SpicetifyVersionStateLabel" Style="{StaticResource LabelStyle}" FontSize="15" Content="" Margin="0,0,0,3"/>
             </ui:SimpleStackPanel>
-            <Label Grid.Column="1" Grid.Row="2" x:Name="BackupVersionLabel" Style="{StaticResource VersionStyle}" Content="0.0.0"/>
+            <Label Grid.Column="1" Grid.Row="2" x:Name="BackupVersionLabel" Style="{StaticResource LabelStyle}" Content="0.0.0" Margin="0,0,0,3"/>
         </Grid>
         <Grid Margin="0,13,0,0">
             <Grid.RowDefinitions>
