@@ -19,7 +19,10 @@ namespace SpicetifyManager.Pages
         public void InitControls()
         {
             SpicetifyVersionLabel.Content = Spicetify.Instance.Version;
-            BackupVersionLabel.Content = Spicetify.Instance.Settings.BackupVersion + " with " + Spicetify.Instance.Settings.WithVersion;
+            BackupVersionLabel.Content =
+                (Spicetify.Instance.Settings.BackupVersion != "" && Spicetify.Instance.Settings.WithVersion != "")
+                    ? Spicetify.Instance.Settings.BackupVersion + " with " + Spicetify.Instance.Settings.WithVersion
+                    : "No Backup";
         }
 
         private void CheckVersionBtn_OnClick(object sender, RoutedEventArgs e)
@@ -32,7 +35,9 @@ namespace SpicetifyManager.Pages
         {
             Logger.Log("Checking manager version...");
             var latestTag = await VersionChecker.GetLatestTag("AdotBdot", "SpicetifyManager");
-            var text = latestTag == (string)FindResource("AppVersion") ? "You are up to date." : "Version " + latestTag + " available.";
+            var text = latestTag == (string)FindResource("AppVersion")
+                ? "You are up to date."
+                : "Version " + latestTag + " available.";
             AppVersionStateLabel.Content = text;
         }
 
@@ -40,7 +45,9 @@ namespace SpicetifyManager.Pages
         {
             Logger.Log("Checking spicetify version...");
             var latestTag = await VersionChecker.GetLatestTag("spicetify", "spicetify-cli");
-            var text = (latestTag == "v" + Spicetify.Instance.Version) ? "You are up to date." : "Version " + latestTag + " available.";
+            var text = (latestTag == "v" + Spicetify.Instance.Version)
+                ? "You are up to date."
+                : "Version " + latestTag + " available.";
             SpicetifyVersionStateLabel.Content = text;
         }
     }
