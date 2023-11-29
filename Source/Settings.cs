@@ -84,14 +84,14 @@ namespace SpicetifyManager
             ColorScheme = string.Empty;
             OverwriteAssets = false;
             InjectCss = true;
-            InjectThemeJs = false;
+            InjectThemeJs = true;
             ReplaceColors = true;
             CheckSpicetifyUpgrade = false;
 
             ExposeApis = true;
             DisableSentry = true;
             DisableUiLogging = true;
-            DisableUpgradeCheck = true;
+            DisableUpgradeCheck = false;
             RemoveRtlRule = true;
 
             Extensions = new List<string>();
@@ -109,7 +109,7 @@ namespace SpicetifyManager
         public string ColorScheme{get; set;} = string.Empty;
         public bool OverwriteAssets{get; set;} = false;
         public bool InjectCss{get; set;} = true;
-        public bool InjectThemeJs {get;set;} = false;
+        public bool InjectThemeJs {get;set;} = true;
         public bool ReplaceColors{get; set;} = true;
         public bool CheckSpicetifyUpgrade{get; set;} = false;
 
@@ -117,7 +117,7 @@ namespace SpicetifyManager
         public bool ExposeApis { get; set; } = true;
         public bool DisableSentry{get; set;} = true;
         public bool DisableUiLogging{get; set;} = true;
-        public bool DisableUpgradeCheck{get; set;} = true;
+        public bool DisableUpgradeCheck{get; set;} = false;
         public bool RemoveRtlRule { get; set; } = true;
 
         //AdditionalOptions
